@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  CCCalculator
 //
 //  Created by Amr Hesham on 21/04/2021.
@@ -7,14 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class CalculatorViewController: UIViewController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
     view.backgroundColor = .red
+    // Do any additional setup after loading the view.
   }
-
-
 }
-
