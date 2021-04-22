@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ei2-bi-HeC" customClass="CalculatorView" customModule="CCCalculator" customModuleProvider="target">
-                    <rect key="frame" x="8" y="52" width="398" height="224"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="224"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
@@ -28,9 +28,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ei2-bi-HeC" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="7Yw-qZ-iSQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ei2-bi-HeC" secondAttribute="trailing" constant="8" id="fMg-cd-U7Y"/>
-                <constraint firstItem="ei2-bi-HeC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="gyo-VQ-rkr"/>
-                <constraint firstItem="ei2-bi-HeC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="maP-cA-Cgk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ei2-bi-HeC" secondAttribute="trailing" id="fMg-cd-U7Y"/>
+                <constraint firstItem="ei2-bi-HeC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gyo-VQ-rkr"/>
+                <constraint firstItem="ei2-bi-HeC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="maP-cA-Cgk"/>
             </constraints>
             <point key="canvasLocation" x="-259" y="88"/>
         </view>
