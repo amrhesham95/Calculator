@@ -29,6 +29,11 @@
 		EF0695782630D5BF0000FC0F /* CalculatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0695772630D5BF0000FC0F /* CalculatorView.xib */; };
 		EF34F4EB2630DF2D007088A0 /* NSObject+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F4EA2630DF2D007088A0 /* NSObject+Helpers.swift */; };
 		EF34F4EE2630DF61007088A0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */; };
+		EF34F4F22630ED94007088A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F4F12630ED94007088A0 /* NetworkManager.swift */; };
+		EF34F50B2630F2A7007088A0 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F50A2630F2A7007088A0 /* RequestModel.swift */; };
+		EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F50D2630F357007088A0 /* ErrorModel.swift */; };
+		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
+		EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5132630F3F1007088A0 /* ResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,11 @@
 		EF0695772630D5BF0000FC0F /* CalculatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorView.xib; sourceTree = "<group>"; };
 		EF34F4EA2630DF2D007088A0 /* NSObject+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Helpers.swift"; sourceTree = "<group>"; };
 		EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		EF34F4F12630ED94007088A0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EF34F50A2630F2A7007088A0 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		EF34F50D2630F357007088A0 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
+		EF34F5132630F3F1007088A0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,7 @@
 		EF0694F72630BC820000FC0F = {
 			isa = PBXGroup;
 			children = (
+				EF34F4F02630ED7C007088A0 /* Network */,
 				EF34F4E92630DF16007088A0 /* Extensions */,
 				EF0695722630D48C0000FC0F /* Views */,
 				EF0695552630CFCD0000FC0F /* Tools */,
@@ -187,6 +198,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EF34F4F02630ED7C007088A0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EF34F4F12630ED94007088A0 /* NetworkManager.swift */,
+				EF34F50A2630F2A7007088A0 /* RequestModel.swift */,
+				EF34F50D2630F357007088A0 /* ErrorModel.swift */,
+				EF34F5102630F3CD007088A0 /* ErrorKey.swift */,
+				EF34F5132630F3F1007088A0 /* ResponseModel.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,16 +282,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF34F4F22630ED94007088A0 /* NetworkManager.swift in Sources */,
 				EF06955E2630D08D0000FC0F /* PublishSubject.swift in Sources */,
 				EF0695582630D02F0000FC0F /* Observable.swift in Sources */,
 				EF0695692630D10B0000FC0F /* DisposeBase.swift in Sources */,
+				EF34F50B2630F2A7007088A0 /* RequestModel.swift in Sources */,
 				EF0695652630D0D60000FC0F /* ObservationToken.swift in Sources */,
 				EF0695742630D5B00000FC0F /* CalculatorView.swift in Sources */,
 				EF0695082630BC820000FC0F /* ViewController.swift in Sources */,
+				EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */,
 				EF0695442630BF710000FC0F /* AppTab.swift in Sources */,
 				EF34F4EB2630DF2D007088A0 /* NSObject+Helpers.swift in Sources */,
+				EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */,
 				EF06956D2630D12B0000FC0F /* DisposeBag.swift in Sources */,
 				EF34F4EE2630DF61007088A0 /* UIView+Helpers.swift in Sources */,
+				EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */,
 				EF0695702630D13E0000FC0F /* Disposable.swift in Sources */,
 				EF0695042630BC820000FC0F /* AppDelegate.swift in Sources */,
 				EF06953F2630BDE40000FC0F /* MainTabBarController.swift in Sources */,
