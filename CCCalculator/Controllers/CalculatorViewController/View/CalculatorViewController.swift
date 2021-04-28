@@ -7,8 +7,15 @@
 
 import UIKit
 
+// MARK: - CalculatorViewController
+//
 class CalculatorViewController: UIViewController {
   
+  // MARK: - Properties
+  
+  let viewModel = CalculatorViewModel()
+  
+  // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
