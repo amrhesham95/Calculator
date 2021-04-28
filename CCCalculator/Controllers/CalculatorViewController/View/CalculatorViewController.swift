@@ -13,7 +13,7 @@ class CalculatorViewController: UIViewController {
   
   // MARK: - Properties
   
-  let viewModel = CalculatorViewModel()
+  let viewModel = CalculatorViewModel()C
   
   // MARK: - Lifecycle
   override func viewDidLoad() {

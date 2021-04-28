@@ -37,6 +37,7 @@
 		EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F50D2630F357007088A0 /* ErrorModel.swift */; };
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
 		EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5132630F3F1007088A0 /* ResponseModel.swift */; };
+		EFD9F9972639E6EF00766B28 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9962639E6EF00766B28 /* Command.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		EF34F50D2630F357007088A0 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
 		EF34F5132630F3F1007088A0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		EFD9F9962639E6EF00766B28 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		EF0791612639D60900D229C3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EFD9F9952639E6DB00766B28 /* Command */,
 				EF0791622639D61900D229C3 /* BaseViewModel */,
 			);
 			path = Classes;
@@ -249,6 +252,14 @@
 				EF34F5132630F3F1007088A0 /* ResponseModel.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EFD9F9952639E6DB00766B28 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9F9962639E6EF00766B28 /* Command.swift */,
+			);
+			path = Command;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +351,7 @@
 				EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */,
 				EF0695702630D13E0000FC0F /* Disposable.swift in Sources */,
 				EF0695042630BC820000FC0F /* AppDelegate.swift in Sources */,
+				EFD9F9972639E6EF00766B28 /* Command.swift in Sources */,
 				EF06953F2630BDE40000FC0F /* MainTabBarController.swift in Sources */,
 				EF0695492630C7E90000FC0F /* CalculatorViewController.swift in Sources */,
 				EF0695622630D0BD0000FC0F /* Observer.swift in Sources */,
