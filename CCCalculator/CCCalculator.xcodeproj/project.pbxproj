@@ -38,6 +38,11 @@
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
 		EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5132630F3F1007088A0 /* ResponseModel.swift */; };
 		EFD9F9972639E6EF00766B28 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9962639E6EF00766B28 /* Command.swift */; };
+		EFD9F99A2639EE9200766B28 /* DigitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9992639EE9200766B28 /* DigitCommand.swift */; };
+		EFD9F99D2639EED200766B28 /* OperationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F99C2639EED200766B28 /* OperationCommand.swift */; };
+		EFD9F9A12639EF0000766B28 /* EvaluateCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9A02639EF0000766B28 /* EvaluateCommand.swift */; };
+		EFD9F9A52639EF5700766B28 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9A42639EF5700766B28 /* Calculator.swift */; };
+		EFD9F9A82639EF9B00766B28 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9A72639EF9B00766B28 /* Expression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +79,11 @@
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
 		EF34F5132630F3F1007088A0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		EFD9F9962639E6EF00766B28 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		EFD9F9992639EE9200766B28 /* DigitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitCommand.swift; sourceTree = "<group>"; };
+		EFD9F99C2639EED200766B28 /* OperationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCommand.swift; sourceTree = "<group>"; };
+		EFD9F9A02639EF0000766B28 /* EvaluateCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateCommand.swift; sourceTree = "<group>"; };
+		EFD9F9A42639EF5700766B28 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		EFD9F9A72639EF9B00766B28 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +268,11 @@
 			isa = PBXGroup;
 			children = (
 				EFD9F9962639E6EF00766B28 /* Command.swift */,
+				EFD9F9992639EE9200766B28 /* DigitCommand.swift */,
+				EFD9F99C2639EED200766B28 /* OperationCommand.swift */,
+				EFD9F9A02639EF0000766B28 /* EvaluateCommand.swift */,
+				EFD9F9A42639EF5700766B28 /* Calculator.swift */,
+				EFD9F9A72639EF9B00766B28 /* Expression.swift */,
 			);
 			path = Command;
 			sourceTree = "<group>";
@@ -343,7 +358,9 @@
 				EF0695742630D5B00000FC0F /* CalculatorView.swift in Sources */,
 				EF0695082630BC820000FC0F /* ViewController.swift in Sources */,
 				EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */,
+				EFD9F99D2639EED200766B28 /* OperationCommand.swift in Sources */,
 				EF0695442630BF710000FC0F /* AppTab.swift in Sources */,
+				EFD9F99A2639EE9200766B28 /* DigitCommand.swift in Sources */,
 				EF34F4EB2630DF2D007088A0 /* NSObject+Helpers.swift in Sources */,
 				EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */,
 				EF06956D2630D12B0000FC0F /* DisposeBag.swift in Sources */,
@@ -355,11 +372,14 @@
 				EF06953F2630BDE40000FC0F /* MainTabBarController.swift in Sources */,
 				EF0695492630C7E90000FC0F /* CalculatorViewController.swift in Sources */,
 				EF0695622630D0BD0000FC0F /* Observer.swift in Sources */,
+				EFD9F9A52639EF5700766B28 /* Calculator.swift in Sources */,
 				EF06955B2630D0550000FC0F /* BehaviorSubject.swift in Sources */,
 				EF07915E2639D5C300D229C3 /* CalculatorViewModel.swift in Sources */,
 				EF0791642639D62D00D229C3 /* ViewModel.swift in Sources */,
 				EF0791672639D64500D229C3 /* State.swift in Sources */,
+				EFD9F9A82639EF9B00766B28 /* Expression.swift in Sources */,
 				EF0695522630CA2D0000FC0F /* CurrencyConverterViewController.swift in Sources */,
+				EFD9F9A12639EF0000766B28 /* EvaluateCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
