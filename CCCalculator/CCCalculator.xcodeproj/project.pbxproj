@@ -25,8 +25,6 @@
 		EF0695692630D10B0000FC0F /* DisposeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0695682630D10B0000FC0F /* DisposeBase.swift */; };
 		EF06956D2630D12B0000FC0F /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF06956C2630D12B0000FC0F /* DisposeBag.swift */; };
 		EF0695702630D13E0000FC0F /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF06956F2630D13E0000FC0F /* Disposable.swift */; };
-		EF0695742630D5B00000FC0F /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0695732630D5B00000FC0F /* CalculatorView.swift */; };
-		EF0695782630D5BF0000FC0F /* CalculatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0695772630D5BF0000FC0F /* CalculatorView.xib */; };
 		EF07915E2639D5C300D229C3 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07915D2639D5C300D229C3 /* CalculatorViewModel.swift */; };
 		EF0791642639D62D00D229C3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0791632639D62D00D229C3 /* ViewModel.swift */; };
 		EF0791672639D64500D229C3 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0791662639D64500D229C3 /* State.swift */; };
@@ -37,6 +35,7 @@
 		EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F50D2630F357007088A0 /* ErrorModel.swift */; };
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
 		EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5132630F3F1007088A0 /* ResponseModel.swift */; };
+		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +59,6 @@
 		EF0695682630D10B0000FC0F /* DisposeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBase.swift; sourceTree = "<group>"; };
 		EF06956C2630D12B0000FC0F /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
 		EF06956F2630D13E0000FC0F /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
-		EF0695732630D5B00000FC0F /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
-		EF0695772630D5BF0000FC0F /* CalculatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculatorView.xib; sourceTree = "<group>"; };
 		EF07915D2639D5C300D229C3 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		EF0791632639D62D00D229C3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EF0791662639D64500D229C3 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -72,6 +69,7 @@
 		EF34F50D2630F357007088A0 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
 		EF34F5132630F3F1007088A0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +86,7 @@
 		EF0694F72630BC820000FC0F = {
 			isa = PBXGroup;
 			children = (
+				EFD9F9AD263A19E000766B28 /* Models */,
 				EF0791612639D60900D229C3 /* Classes */,
 				EF34F4F02630ED7C007088A0 /* Network */,
 				EF34F4E92630DF16007088A0 /* Extensions */,
@@ -190,8 +189,6 @@
 		EF0695722630D48C0000FC0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF0695732630D5B00000FC0F /* CalculatorView.swift */,
-				EF0695772630D5BF0000FC0F /* CalculatorView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,6 +246,14 @@
 				EF34F5132630F3F1007088A0 /* ResponseModel.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EFD9F9AD263A19E000766B28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9F9AE263A19FF00766B28 /* OperationType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +315,6 @@
 			files = (
 				EF0695102630BC850000FC0F /* LaunchScreen.storyboard in Resources */,
 				EF06954A2630C7E90000FC0F /* CalculatorViewController.xib in Resources */,
-				EF0695782630D5BF0000FC0F /* CalculatorView.xib in Resources */,
 				EF0695532630CA2D0000FC0F /* CurrencyConverterViewController.xib in Resources */,
 				EF06950D2630BC850000FC0F /* Assets.xcassets in Resources */,
 			);
@@ -329,7 +333,6 @@
 				EF0695692630D10B0000FC0F /* DisposeBase.swift in Sources */,
 				EF34F50B2630F2A7007088A0 /* RequestModel.swift in Sources */,
 				EF0695652630D0D60000FC0F /* ObservationToken.swift in Sources */,
-				EF0695742630D5B00000FC0F /* CalculatorView.swift in Sources */,
 				EF0695082630BC820000FC0F /* ViewController.swift in Sources */,
 				EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */,
 				EF0695442630BF710000FC0F /* AppTab.swift in Sources */,
@@ -342,6 +345,7 @@
 				EF0695042630BC820000FC0F /* AppDelegate.swift in Sources */,
 				EF06953F2630BDE40000FC0F /* MainTabBarController.swift in Sources */,
 				EF0695492630C7E90000FC0F /* CalculatorViewController.swift in Sources */,
+				EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */,
 				EF0695622630D0BD0000FC0F /* Observer.swift in Sources */,
 				EF06955B2630D0550000FC0F /* BehaviorSubject.swift in Sources */,
 				EF07915E2639D5C300D229C3 /* CalculatorViewModel.swift in Sources */,

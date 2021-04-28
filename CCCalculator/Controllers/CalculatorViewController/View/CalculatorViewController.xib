@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="CCCalculator" customModuleProvider="target">
             <connections>
+                <outlet property="resultLabel" destination="a4d-0x-bH5" id="vAS-fY-QmT"/>
+                <outlet property="textField" destination="4RD-qy-3Me" id="lH4-ZO-lks"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +23,85 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ei2-bi-HeC" customClass="CalculatorView" customModule="CCCalculator" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="224"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1KS-rw-o4I">
+                            <rect key="frame" x="8" y="8" width="398" height="208"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4d-0x-bH5">
+                                    <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter the second operand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4RD-qy-3Me">
+                                    <rect key="frame" x="0.0" y="28.5" width="398" height="141.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sRL-hi-HqO" userLabel="ButtonsStackView">
+                                    <rect key="frame" x="0.0" y="178" width="398" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyQ-cO-LTB">
+                                            <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
+                                            <state key="normal" title="Undo"/>
+                                            <connections>
+                                                <action selector="undoButtonTapped:" destination="-1" eventType="touchUpInside" id="ana-Pz-zx3"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9e-09-7sa">
+                                            <rect key="frame" x="57" y="0.0" width="56.5" height="30"/>
+                                            <state key="normal" title="+"/>
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="oZx-zy-ACH"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RI7-6i-b6m">
+                                            <rect key="frame" x="113.5" y="0.0" width="57" height="30"/>
+                                            <state key="normal" title="-"/>
+                                            <connections>
+                                                <action selector="subtractButtonTapped:" destination="-1" eventType="touchUpInside" id="uZy-Zv-FCm"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whH-th-BcP">
+                                            <rect key="frame" x="170.5" y="0.0" width="57" height="30"/>
+                                            <state key="normal" title="*"/>
+                                            <connections>
+                                                <action selector="multiplyButtonTapped:" destination="-1" eventType="touchUpInside" id="9TC-zP-Klx"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYr-sk-A5k">
+                                            <rect key="frame" x="227.5" y="0.0" width="57" height="30"/>
+                                            <state key="normal" title="/"/>
+                                            <connections>
+                                                <action selector="divideButtonTapped:" destination="-1" eventType="touchUpInside" id="M1f-ZI-ASe"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojr-tC-KtC">
+                                            <rect key="frame" x="284.5" y="0.0" width="56.5" height="30"/>
+                                            <state key="normal" title="="/>
+                                            <connections>
+                                                <action selector="equalButtonTapped:" destination="-1" eventType="touchUpInside" id="7ux-vY-UD4"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEn-t6-tir">
+                                            <rect key="frame" x="341" y="0.0" width="57" height="30"/>
+                                            <state key="normal" title="Redo"/>
+                                            <connections>
+                                                <action selector="redoButtonTapped:" destination="-1" eventType="touchUpInside" id="kaC-Mm-bjm"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="1KS-rw-o4I" secondAttribute="bottom" constant="8" id="KSj-cx-2mM"/>
+                        <constraint firstAttribute="trailing" secondItem="1KS-rw-o4I" secondAttribute="trailing" constant="8" id="OTZ-at-aRH"/>
+                        <constraint firstItem="1KS-rw-o4I" firstAttribute="top" secondItem="ei2-bi-HeC" secondAttribute="top" constant="8" id="qaD-gl-dm3"/>
+                        <constraint firstItem="1KS-rw-o4I" firstAttribute="leading" secondItem="ei2-bi-HeC" secondAttribute="leading" constant="8" id="yzT-yX-TE2"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
