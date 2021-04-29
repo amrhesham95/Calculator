@@ -81,9 +81,33 @@ class CalculatorViewModel: ViewModel {
     operations.send(newOperations)
   }
   
-  func removeOperation(at index: Int) {
+  func addNewOperationFromEqualButton() {
+    let operation = Operation(index: operations.value.count, value: inputValueSubject.value, type: operationType!)
     var newOperations = operations.value
-    let removedOperation = newOperations.remove(at: index)
+    newOperations.append(operation)
+    operations.send(newOperations)
+  }
+  
+  func addDeletedOperationBack(_ index: Int) {
+    guard removedOperations.count > 0 else { return }
+    let operation = removedOperations.removeLast()
+    var newOperations = operations.value
+    newOperations.insert(operation, at: operation.index)
+    operations.send(newOperations)
+  }
+
+  func removeOperationAt(_ index: Int) {
+    var newOperations = operations.value
+    let removedOperation = newOperations[index]
+    newOperations[index] = nil
+    operations.send(newOperations)
+    guard let operation = removedOperation else { return }
+   removedOperations.append(operation)
+  }
+
+  func removeNewOperation() {
+    var newOperations = operations.value
+    let removedOperation = newOperations.removeLast()
     operations.send(newOperations)
     guard let operation = removedOperation else { return }
    removedOperations.append(operation)

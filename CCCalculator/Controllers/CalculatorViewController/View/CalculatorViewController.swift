@@ -26,7 +26,9 @@ class CalculatorViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     tableView.dataSource = self
+    tableView.delegate = self
     
     viewModel.operations.subscribe { [weak self] _ in
       self?.tableView.reloadData()
@@ -54,7 +56,7 @@ private extension CalculatorViewController {
     viewModel.operationType = .multiply
   }
   @IBAction func equalButtonTapped(_ sender: Any) {
-    viewModel.addNewOperation()
+    viewModel.addNewOperationFromEqualButton()
     registerUndoActionForAddOperation()
   }
   @IBAction func undoButtonTapped(_ sender: Any) {
@@ -98,8 +100,22 @@ private extension CalculatorViewController {
   
   func registerUndoActionForAddOperation() {
     self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
-      self.viewModel.removeOperation(at: self.viewModel.operations.value.count - 1)
+      self.viewModel.removeNewOperation()
       selfTarget.registerUndoActionForRemoveOperation()
+    })
+  }
+  
+  func registerUndoActionForAddOperationAt(_ index: Int) {
+    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
+      self.viewModel.removeOperationAt(index)
+      selfTarget.registerUndoActionForRemoveOperationAt(index)
+    })
+  }
+  
+  func registerUndoActionForRemoveOperationAt(_ index: Int) {
+    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
+      self.viewModel.addDeletedOperationBack(index)
+      selfTarget.registerUndoActionForAddOperationAt(index)
     })
   }
 }
@@ -116,5 +132,14 @@ extension CalculatorViewController: UITableViewDataSource {
     cell.textLabel?.text = "\(operation.value)"
     cell.detailTextLabel?.text = operation.type.rawValue
     return cell
+  }
+}
+
+// MARK: - CalculatorViewController+UITableViewDelegate
+extension CalculatorViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    viewModel.removeOperationAt(indexPath.row)
+    registerUndoActionForRemoveOperationAt(indexPath.row)
   }
 }
