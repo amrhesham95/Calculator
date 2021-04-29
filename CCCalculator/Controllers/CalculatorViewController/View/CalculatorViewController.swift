@@ -56,14 +56,14 @@ private extension CalculatorViewController {
     viewModel.operationType = .multiply
   }
   @IBAction func equalButtonTapped(_ sender: Any) {
-    viewModel.addNewOperationFromEqualButton()
-    registerUndoActionForAddOperation()
+    viewModel.calculate()
   }
   @IBAction func undoButtonTapped(_ sender: Any) {
-    undoManager?.undo()
+    guard viewModel.operationsCount - 1 >= 0 else { return }
+    viewModel.undoOperation(at: viewModel.getSafeIndex())
   }
   @IBAction func redoButtonTapped(_ sender: Any) {
-    undoManager?.redo()
+    viewModel.redoOperation()
   }
 }
 
@@ -87,38 +87,6 @@ private extension CalculatorViewController {
   }
 }
 
-// MARK: - UndoManager Registrations
-//
-private extension CalculatorViewController {
-    
-  func registerUndoActionForRemoveOperation(){
-    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
-      self.viewModel.addNewOperation()
-      selfTarget.registerUndoActionForAddOperation()
-    })
-  }
-  
-  func registerUndoActionForAddOperation() {
-    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
-      self.viewModel.removeNewOperation()
-      selfTarget.registerUndoActionForRemoveOperation()
-    })
-  }
-  
-  func registerUndoActionForAddOperationAt(_ index: Int) {
-    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
-      self.viewModel.removeOperationAt(index)
-      selfTarget.registerUndoActionForRemoveOperationAt(index)
-    })
-  }
-  
-  func registerUndoActionForRemoveOperationAt(_ index: Int) {
-    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
-      self.viewModel.addDeletedOperationBack(index)
-      selfTarget.registerUndoActionForAddOperationAt(index)
-    })
-  }
-}
 
 // MARK: - CalculatorViewController+UITableViewDataSource
 extension CalculatorViewController: UITableViewDataSource {
@@ -139,7 +107,7 @@ extension CalculatorViewController: UITableViewDataSource {
 extension CalculatorViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    viewModel.removeOperationAt(indexPath.row)
-    registerUndoActionForRemoveOperationAt(indexPath.row)
+    let safeIndex = viewModel.getSafeIndex(with: indexPath.row)
+    viewModel.undoOperation(at: safeIndex)
   }
 }

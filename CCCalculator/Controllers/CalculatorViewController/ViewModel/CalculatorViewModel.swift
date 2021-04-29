@@ -14,7 +14,7 @@ class CalculatorViewModel: ViewModel {
   // MARK: - Properties
   
   var operations: BehaviorSubject<[Operation?]> = BehaviorSubject<[Operation?]>([])
-  
+    
   var operationsCount: Int {
     return operations.value.compactMap {$0}.count
   }
@@ -74,43 +74,25 @@ class CalculatorViewModel: ViewModel {
     inputValueSubject.send(valueAsNumber)
   }
   
-  func addNewOperation() {
-    let operation = removedOperations.count > 0 ? removedOperations.removeLast() : Operation(index: 0, value: inputValueSubject.value, type: operationType!)
+  func undoOperation(at index: Int) {
+    guard operations.value.count > 0,
+          let type = operationType,
+          let value = operations.value[index]?.value  else { return }
+    
+    let operation = Operation(index: index, value: value, type: type)
     var newOperations = operations.value
-    newOperations.append(operation)
+    newOperations[index] = nil
+    
     operations.send(newOperations)
+    removedOperations.append(operation)
   }
   
-  func addNewOperationFromEqualButton() {
-    let operation = Operation(index: operations.value.count, value: inputValueSubject.value, type: operationType!)
-    var newOperations = operations.value
-    newOperations.append(operation)
-    operations.send(newOperations)
-  }
-  
-  func addDeletedOperationBack(_ index: Int) {
+  func redoOperation() {
     guard removedOperations.count > 0 else { return }
     let operation = removedOperations.removeLast()
     var newOperations = operations.value
-    newOperations.insert(operation, at: operation.index)
+    newOperations[operation.index] = operation
     operations.send(newOperations)
-  }
-
-  func removeOperationAt(_ index: Int) {
-    var newOperations = operations.value
-    let removedOperation = newOperations[index]
-    newOperations[index] = nil
-    operations.send(newOperations)
-    guard let operation = removedOperation else { return }
-   removedOperations.append(operation)
-  }
-
-  func removeNewOperation() {
-    var newOperations = operations.value
-    let removedOperation = newOperations.removeLast()
-    operations.send(newOperations)
-    guard let operation = removedOperation else { return }
-   removedOperations.append(operation)
   }
 }
 
@@ -119,7 +101,12 @@ class CalculatorViewModel: ViewModel {
 extension CalculatorViewModel {
   
   func calculate() {
+    
     guard let type = operationType else { return }
+    var newOperations = operations.value
+    newOperations.append(Operation(index: operations.value.count, value: inputValueSubject.value, type: type))
+    operations.send(newOperations)
+    
     switch type {
     case .add:
       add()
@@ -130,6 +117,22 @@ extension CalculatorViewModel {
     case .multiply:
       multiply()
     }
+  }
+  
+  func getSafeIndex() -> Int {
+    for item in operations.value.reversed() where item != nil {
+      return item?.index ?? .zero
+    }
+    return .zero
+  }
+  
+  func getSafeIndex(with index: Int) -> Int {
+    for i in index...operations.value.count - 1 {
+      if operations.value[i] != nil {
+        return i
+      }
+    }
+    return .zero
   }
 }
 
