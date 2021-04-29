@@ -32,22 +32,6 @@ class CalculatorViewModel: ViewModel {
   ///
   var operationType: OperationType?
   
-  var reversedType: OperationType? {
-    switch operationType {
-    case .add:
-      return .subtract
-    case .subtract:
-      return .add
-    case .divide:
-      return .multiply
-    case .multiply:
-      return .divide
-    case .none:
-      return nil
-    }
-  }
-
-  
   /// Result subject instance
   ///
   var resultSubject = BehaviorSubject<Double>(0)
@@ -125,10 +109,8 @@ extension CalculatorViewModel {
   }
   
   func getSafeIndex(with index: Int) -> Int {
-    for i in index...operations.value.count - 1 {
-      if operations.value[i] != nil {
-        return i
-      }
+    for operationIndex in index...operations.value.count - 1 where operations.value[operationIndex] != nil {
+        return operationIndex
     }
     return .zero
   }

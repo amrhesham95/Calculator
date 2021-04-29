@@ -30,8 +30,8 @@
             filePath = "Controllers/CalculatorViewController/ViewModel/CalculatorViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "undoOperation(at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Controllers/CalculatorViewController/ViewModel/CalculatorViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "updateresultWithOperations(_:)"
             landmarkType = "7">
          </BreakpointContent>
