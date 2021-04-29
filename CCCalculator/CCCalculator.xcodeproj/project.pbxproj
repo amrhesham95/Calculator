@@ -36,6 +36,7 @@
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
 		EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5132630F3F1007088A0 /* ResponseModel.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
+		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
 		EF34F5132630F3F1007088A0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
+		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD9F9AE263A19FF00766B28 /* OperationType.swift */,
+				EFD9F9B1263A36AD00766B28 /* Operation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				EF06955B2630D0550000FC0F /* BehaviorSubject.swift in Sources */,
 				EF07915E2639D5C300D229C3 /* CalculatorViewModel.swift in Sources */,
 				EF0791642639D62D00D229C3 /* ViewModel.swift in Sources */,
+				EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */,
 				EF0791672639D64500D229C3 /* State.swift in Sources */,
 				EF0695522630CA2D0000FC0F /* CurrencyConverterViewController.swift in Sources */,
 			);

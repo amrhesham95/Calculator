@@ -13,18 +13,24 @@ class CalculatorViewController: UIViewController {
   
   // MARK: - Outlets
   
+  @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var resultLabel: UILabel!
   @IBOutlet weak var textField: UITextField!
   
   // MARK: - Properties
   
-  let viewModel = CalculatorViewModel()
+  var viewModel = CalculatorViewModel()
   let disposeBag = DisposeBag()
   
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.dataSource = self
+    
+    viewModel.operations.subscribe { [weak self] _ in
+      self?.tableView.reloadData()
+    }.disposed(by: disposeBag)
     
     textFieldBinding()
     resultBinding()
@@ -48,7 +54,8 @@ private extension CalculatorViewController {
     viewModel.operationType = .multiply
   }
   @IBAction func equalButtonTapped(_ sender: Any) {
-    viewModel.calculate()
+    viewModel.addNewOperation()
+    registerUndoActionForAddOperation()
   }
   @IBAction func undoButtonTapped(_ sender: Any) {
     undoManager?.undo()
@@ -75,5 +82,39 @@ private extension CalculatorViewController {
   
   @objc func textFieldDidChange(_ textField: UITextField) {
     viewModel.updateValueWith(textField.text)
+  }
+}
+
+// MARK: - UndoManager Registrations
+//
+private extension CalculatorViewController {
+    
+  func registerUndoActionForRemoveOperation(){
+    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
+      self.viewModel.addNewOperation()
+      selfTarget.registerUndoActionForAddOperation()
+    })
+  }
+  
+  func registerUndoActionForAddOperation() {
+    self.undoManager?.registerUndo(withTarget: self, handler: { (selfTarget) in
+      self.viewModel.removeOperation(at: self.viewModel.operations.value.count - 1)
+      selfTarget.registerUndoActionForRemoveOperation()
+    })
+  }
+}
+
+// MARK: - CalculatorViewController+UITableViewDataSource
+extension CalculatorViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    viewModel.operationsCount
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+    let operation = viewModel.operationForRowAt(indexPath)
+    cell.textLabel?.text = "\(operation.value)"
+    cell.detailTextLabel?.text = operation.type.rawValue
+    return cell
   }
 }

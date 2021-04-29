@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="CCCalculator" customModuleProvider="target">
             <connections>
                 <outlet property="resultLabel" destination="a4d-0x-bH5" id="vAS-fY-QmT"/>
+                <outlet property="tableView" destination="S9R-ha-CFs" id="b0x-sl-4JS"/>
                 <outlet property="textField" destination="4RD-qy-3Me" id="lH4-ZO-lks"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -103,14 +104,22 @@
                         <constraint firstItem="1KS-rw-o4I" firstAttribute="leading" secondItem="ei2-bi-HeC" secondAttribute="leading" constant="8" id="yzT-yX-TE2"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S9R-ha-CFs">
+                    <rect key="frame" x="8" y="276" width="398" height="578"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ei2-bi-HeC" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="7Yw-qZ-iSQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="S9R-ha-CFs" secondAttribute="bottom" constant="8" id="C91-p7-s3h"/>
+                <constraint firstItem="S9R-ha-CFs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="FtV-aP-pIZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S9R-ha-CFs" secondAttribute="trailing" constant="8" id="egS-dA-R3y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ei2-bi-HeC" secondAttribute="trailing" id="fMg-cd-U7Y"/>
                 <constraint firstItem="ei2-bi-HeC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gyo-VQ-rkr"/>
                 <constraint firstItem="ei2-bi-HeC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="maP-cA-Cgk"/>
+                <constraint firstItem="S9R-ha-CFs" firstAttribute="top" secondItem="ei2-bi-HeC" secondAttribute="bottom" constant="8" id="nDQ-Yg-6qb"/>
             </constraints>
             <point key="canvasLocation" x="-259" y="88"/>
         </view>

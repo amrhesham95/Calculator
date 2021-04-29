@@ -13,13 +13,42 @@ class CalculatorViewModel: ViewModel {
   
   // MARK: - Properties
   
+  var operations: BehaviorSubject<[Operation?]> = BehaviorSubject<[Operation?]>([])
+  
+  var operationsCount: Int {
+    return operations.value.compactMap {$0}.count
+  }
+  
+  func operationForRowAt(_ index: IndexPath) -> Operation {
+    return operations.value.compactMap {$0}[index.row]
+  }
+  
+  // maybe replaced with stack
+  var removedOperations = [Operation]()
+  
   /// Operation type that is currently chosen (+, -, *, /)
   ///
   var operationType: OperationType?
   
+  var reversedType: OperationType? {
+    switch operationType {
+    case .add:
+      return .subtract
+    case .subtract:
+      return .add
+    case .divide:
+      return .multiply
+    case .multiply:
+      return .divide
+    case .none:
+      return nil
+    }
+  }
+
+  
   /// Result subject instance
   ///
-  private var resultSubject = BehaviorSubject<Double>(0)
+  var resultSubject = BehaviorSubject<Double>(0)
   
   /// Result observable instance
   ///
@@ -29,7 +58,7 @@ class CalculatorViewModel: ViewModel {
   
   /// Result subject instance
   ///
-  private var inputValueSubject = BehaviorSubject<Double>(0)
+  var inputValueSubject = BehaviorSubject<Double>(0)
   
   /// Result observable instance
   ///
@@ -44,11 +73,27 @@ class CalculatorViewModel: ViewModel {
     }
     inputValueSubject.send(valueAsNumber)
   }
+  
+  func addNewOperation() {
+    let operation = removedOperations.count > 0 ? removedOperations.removeLast() : Operation(index: 0, value: inputValueSubject.value, type: operationType!)
+    var newOperations = operations.value
+    newOperations.append(operation)
+    operations.send(newOperations)
+  }
+  
+  func removeOperation(at index: Int) {
+    var newOperations = operations.value
+    let removedOperation = newOperations.remove(at: index)
+    operations.send(newOperations)
+    guard let operation = removedOperation else { return }
+   removedOperations.append(operation)
+  }
 }
 
 // MARK: - Public Handlers
 //
 extension CalculatorViewModel {
+  
   func calculate() {
     guard let type = operationType else { return }
     switch type {

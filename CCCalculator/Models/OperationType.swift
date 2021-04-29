@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum OperationType {
+enum OperationType: String {
   
   case add
   
