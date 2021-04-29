@@ -35,6 +35,7 @@
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
 		EF784B3D263B59F400C88B95 /* String+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B3C263B59F400C88B95 /* String+Handlers.swift */; };
 		EF784B42263B634A00C88B95 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B41263B634A00C88B95 /* Currency.swift */; };
+		EF784B46263B66DF00C88B95 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B45263B66DF00C88B95 /* AppCoordinator.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
 		EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */; };
@@ -74,6 +75,7 @@
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
 		EF784B3C263B59F400C88B95 /* String+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Handlers.swift"; sourceTree = "<group>"; };
 		EF784B41263B634A00C88B95 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		EF784B45263B66DF00C88B95 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
@@ -96,13 +98,12 @@
 		EF0694F72630BC820000FC0F = {
 			isa = PBXGroup;
 			children = (
+				EF784B44263B66CF00C88B95 /* ViewRelated */,
 				EFD9F9AD263A19E000766B28 /* Models */,
 				EF0791612639D60900D229C3 /* Classes */,
 				EF34F4F02630ED7C007088A0 /* Network */,
 				EF34F4E92630DF16007088A0 /* Extensions */,
-				EF0695722630D48C0000FC0F /* Views */,
 				EF0695552630CFCD0000FC0F /* Tools */,
-				EF06953D2630BDD10000FC0F /* Controllers */,
 				EF0695022630BC820000FC0F /* CCCalculator */,
 				EF0695012630BC820000FC0F /* Products */,
 			);
@@ -197,13 +198,6 @@
 			path = Disposables;
 			sourceTree = "<group>";
 		};
-		EF0695722630D48C0000FC0F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		EF07915B2639D5A400D229C3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +252,15 @@
 				EFD9F9C2263B4FE900766B28 /* Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EF784B44263B66CF00C88B95 /* ViewRelated */ = {
+			isa = PBXGroup;
+			children = (
+				EF06953D2630BDD10000FC0F /* Controllers */,
+				EF784B45263B66DF00C88B95 /* AppCoordinator.swift */,
+			);
+			path = ViewRelated;
 			sourceTree = "<group>";
 		};
 		EFD9F9AD263A19E000766B28 /* Models */ = {
@@ -362,6 +365,7 @@
 				EF06955E2630D08D0000FC0F /* PublishSubject.swift in Sources */,
 				EF0695582630D02F0000FC0F /* Observable.swift in Sources */,
 				EF0695692630D10B0000FC0F /* DisposeBase.swift in Sources */,
+				EF784B46263B66DF00C88B95 /* AppCoordinator.swift in Sources */,
 				EF0695652630D0D60000FC0F /* ObservationToken.swift in Sources */,
 				EF0695082630BC820000FC0F /* ViewController.swift in Sources */,
 				EF784B42263B634A00C88B95 /* Currency.swift in Sources */,
