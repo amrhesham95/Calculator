@@ -31,12 +31,16 @@
 		EF34F4EB2630DF2D007088A0 /* NSObject+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F4EA2630DF2D007088A0 /* NSObject+Helpers.swift */; };
 		EF34F4EE2630DF61007088A0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */; };
 		EF34F4F22630ED94007088A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F4F12630ED94007088A0 /* NetworkManager.swift */; };
-		EF34F50B2630F2A7007088A0 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F50A2630F2A7007088A0 /* RequestModel.swift */; };
 		EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F50D2630F357007088A0 /* ErrorModel.swift */; };
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
-		EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5132630F3F1007088A0 /* ResponseModel.swift */; };
+		EF784B3D263B59F400C88B95 /* String+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B3C263B59F400C88B95 /* String+Handlers.swift */; };
+		EF784B42263B634A00C88B95 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B41263B634A00C88B95 /* Currency.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
+		EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */; };
+		EFD9F9BD263B4F0100766B28 /* CurrencyStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9BC263B4F0100766B28 /* CurrencyStoreProtocol.swift */; };
+		EFD9F9C0263B4F1800766B28 /* CurrencyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9BF263B4F1800766B28 /* CurrencyStore.swift */; };
+		EFD9F9C3263B4FE900766B28 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9C2263B4FE900766B28 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,12 +70,16 @@
 		EF34F4EA2630DF2D007088A0 /* NSObject+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Helpers.swift"; sourceTree = "<group>"; };
 		EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		EF34F4F12630ED94007088A0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		EF34F50A2630F2A7007088A0 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		EF34F50D2630F357007088A0 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
-		EF34F5132630F3F1007088A0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		EF784B3C263B59F400C88B95 /* String+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Handlers.swift"; sourceTree = "<group>"; };
+		EF784B41263B634A00C88B95 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
+		EFD9F9BC263B4F0100766B28 /* CurrencyStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStoreProtocol.swift; sourceTree = "<group>"; };
+		EFD9F9BF263B4F1800766B28 /* CurrencyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStore.swift; sourceTree = "<group>"; };
+		EFD9F9C2263B4FE900766B28 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,7 @@
 		EF06954F2630CA150000FC0F /* CurrencyConverterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EFD9F9B6263B44B400766B28 /* ViewModel */,
 				EF0695502630CA2D0000FC0F /* CurrencyConverterViewController.swift */,
 				EF0695512630CA2D0000FC0F /* CurrencyConverterViewController.xib */,
 			);
@@ -215,6 +224,7 @@
 		EF0791612639D60900D229C3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EFD9F9BB263B4EF200766B28 /* Store */,
 				EF0791622639D61900D229C3 /* BaseViewModel */,
 			);
 			path = Classes;
@@ -234,6 +244,7 @@
 			children = (
 				EF34F4EA2630DF2D007088A0 /* NSObject+Helpers.swift */,
 				EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */,
+				EF784B3C263B59F400C88B95 /* String+Handlers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,10 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				EF34F4F12630ED94007088A0 /* NetworkManager.swift */,
-				EF34F50A2630F2A7007088A0 /* RequestModel.swift */,
 				EF34F50D2630F357007088A0 /* ErrorModel.swift */,
 				EF34F5102630F3CD007088A0 /* ErrorKey.swift */,
-				EF34F5132630F3F1007088A0 /* ResponseModel.swift */,
+				EFD9F9C2263B4FE900766B28 /* Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -255,8 +265,26 @@
 			children = (
 				EFD9F9AE263A19FF00766B28 /* OperationType.swift */,
 				EFD9F9B1263A36AD00766B28 /* Operation.swift */,
+				EF784B41263B634A00C88B95 /* Currency.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EFD9F9B6263B44B400766B28 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EFD9F9BB263B4EF200766B28 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9F9BC263B4F0100766B28 /* CurrencyStoreProtocol.swift */,
+				EFD9F9BF263B4F1800766B28 /* CurrencyStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,10 +362,11 @@
 				EF06955E2630D08D0000FC0F /* PublishSubject.swift in Sources */,
 				EF0695582630D02F0000FC0F /* Observable.swift in Sources */,
 				EF0695692630D10B0000FC0F /* DisposeBase.swift in Sources */,
-				EF34F50B2630F2A7007088A0 /* RequestModel.swift in Sources */,
 				EF0695652630D0D60000FC0F /* ObservationToken.swift in Sources */,
 				EF0695082630BC820000FC0F /* ViewController.swift in Sources */,
-				EF34F5142630F3F1007088A0 /* ResponseModel.swift in Sources */,
+				EF784B42263B634A00C88B95 /* Currency.swift in Sources */,
+				EFD9F9BD263B4F0100766B28 /* CurrencyStoreProtocol.swift in Sources */,
+				EFD9F9C0263B4F1800766B28 /* CurrencyStore.swift in Sources */,
 				EF0695442630BF710000FC0F /* AppTab.swift in Sources */,
 				EF34F4EB2630DF2D007088A0 /* NSObject+Helpers.swift in Sources */,
 				EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */,
@@ -347,12 +376,15 @@
 				EF0695702630D13E0000FC0F /* Disposable.swift in Sources */,
 				EF0695042630BC820000FC0F /* AppDelegate.swift in Sources */,
 				EF06953F2630BDE40000FC0F /* MainTabBarController.swift in Sources */,
+				EF784B3D263B59F400C88B95 /* String+Handlers.swift in Sources */,
 				EF0695492630C7E90000FC0F /* CalculatorViewController.swift in Sources */,
+				EFD9F9C3263B4FE900766B28 /* Network.swift in Sources */,
 				EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */,
 				EF0695622630D0BD0000FC0F /* Observer.swift in Sources */,
 				EF06955B2630D0550000FC0F /* BehaviorSubject.swift in Sources */,
 				EF07915E2639D5C300D229C3 /* CalculatorViewModel.swift in Sources */,
 				EF0791642639D62D00D229C3 /* ViewModel.swift in Sources */,
+				EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */,
 				EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */,
 				EF0791672639D64500D229C3 /* State.swift in Sources */,
 				EF0695522630CA2D0000FC0F /* CurrencyConverterViewController.swift in Sources */,

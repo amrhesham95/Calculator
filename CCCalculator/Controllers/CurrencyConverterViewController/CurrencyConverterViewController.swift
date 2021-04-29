@@ -11,6 +11,9 @@ import UIKit
 //
 class CurrencyConverterViewController: UIViewController {
   
+  //MARK: - Properties
+  let viewModel = CurrencyConverterViewModel()
+  
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
