@@ -13,6 +13,8 @@ class CalculatorViewModel: ViewModel {
   
   // MARK: - Properties
   
+  private let disposeBag = DisposeBag()
+  
   var operations: BehaviorSubject<[Operation?]> = BehaviorSubject<[Operation?]>([])
     
   var operationsCount: Int {
@@ -66,6 +68,12 @@ class CalculatorViewModel: ViewModel {
     return inputValueSubject
   }
   
+  //MARK: - Init
+  override init() {
+    super.init()
+    bindResultToOperations()
+  }
+  
   func updateValueWith(_ text: String?) {
     guard let valueAsNumber = Double(text ?? "") else {
 //      state.send(.failure())
@@ -76,7 +84,7 @@ class CalculatorViewModel: ViewModel {
   
   func undoOperation(at index: Int) {
     guard operations.value.count > 0,
-          let type = operationType,
+          let type = operations.value[index]?.type,
           let value = operations.value[index]?.value  else { return }
     
     let operation = Operation(index: index, value: value, type: type)
@@ -107,16 +115,6 @@ extension CalculatorViewModel {
     newOperations.append(Operation(index: operations.value.count, value: inputValueSubject.value, type: type))
     operations.send(newOperations)
     
-    switch type {
-    case .add:
-      add()
-    case .subtract:
-      subtract()
-    case .divide:
-      divide()
-    case .multiply:
-      multiply()
-    }
   }
   
   func getSafeIndex() -> Int {
@@ -139,16 +137,29 @@ extension CalculatorViewModel {
 // MARK: - Private Operations Handlers
 //
 private extension CalculatorViewModel {
-  func add() {
-    resultSubject.send(inputValueSubject.value + resultSubject.value)
+  
+  func bindResultToOperations() {
+    operations.subscribe { [weak self] in
+      self?.updateresultWithOperations($0.compactMap {$0})
+    }.disposed(by: disposeBag)
   }
-  func subtract() {
-    resultSubject.send( resultSubject.value - inputValueSubject.value)
-  }
-  func divide() {
-    resultSubject.send(resultSubject.value / inputValueSubject.value )
-  }
-  func multiply() {
-    resultSubject.send(inputValueSubject.value * resultSubject.value)
+  
+  func updateresultWithOperations(_ operations: [Operation]) {
+    var sum = 0.0
+    resultSubject.send(0)
+    sum = operations.reduce(resultSubject.value) {
+      switch $1.type {
+      
+      case .add:
+        return $1.value + $0
+      case .subtract:
+        return $1.value - $0
+      case .divide:
+        return $1.value / $0
+      case .multiply:
+        return $1.value * $0
+      }
+    }
+    resultSubject.send(sum)
   }
 }
