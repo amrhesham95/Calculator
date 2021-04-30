@@ -14,13 +14,15 @@ class AppCoordinator {
   private var isLoggedIn: Bool?
   
   // MARK: - Properties
-    
-  private let calculatorViewController: CalculatorViewController = {
-    return CalculatorViewController()
+  
+  let viewModel = CalculatorViewModel()
+  let ccViewModel = CurrencyConverterViewModel()
+  private lazy var calculatorViewController: CalculatorViewController = {
+    return CalculatorViewController(viewModel: viewModel)
   }()
   
-  private let currencyConverterViewController: CurrencyConverterViewController = {
-    return CurrencyConverterViewController()
+  private lazy var currencyConverterViewController: CurrencyConverterViewController = {
+    return CurrencyConverterViewController(viewModel: ccViewModel)
   }()
   
   /// Tab Bar Controller
