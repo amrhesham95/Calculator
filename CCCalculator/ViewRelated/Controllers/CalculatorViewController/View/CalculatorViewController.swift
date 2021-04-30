@@ -20,6 +20,8 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var redoButton: UIButton!
   @IBOutlet weak var equalButton: UIButton!
   
+  @IBOutlet var operationButtons: [UIButton]!
+  
   // MARK: - Properties
   
   let viewModel: CalculatorViewModel
@@ -60,19 +62,23 @@ class CalculatorViewController: UIViewController {
 //
 private extension CalculatorViewController {
   
-  @IBAction func addButtonTapped(_ sender: Any) {
+  @IBAction func addButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .add
+    handleButtonsSelection(sender)
   }
-  @IBAction func subtractButtonTapped(_ sender: Any) {
+  @IBAction func subtractButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .subtract
+    handleButtonsSelection(sender)
   }
-  @IBAction func divideButtonTapped(_ sender: Any) {
+  @IBAction func divideButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .divide
+    handleButtonsSelection(sender)
   }
-  @IBAction func multiplyButtonTapped(_ sender: Any) {
+  @IBAction func multiplyButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .multiply
+    handleButtonsSelection(sender)
   }
-  @IBAction func equalButtonTapped(_ sender: Any) {
+  @IBAction func equalButtonTapped(_ sender: UIButton) {
     viewModel.calculate()
   }
   @IBAction func undoButtonTapped(_ sender: Any) {
@@ -81,6 +87,13 @@ private extension CalculatorViewController {
   }
   @IBAction func redoButtonTapped(_ sender: Any) {
     viewModel.redoOperation()
+  }
+}
+
+// MARK: - View Configurations
+private extension CalculatorViewController {
+  func handleButtonsSelection(_ sender: UIButton) {
+    operationButtons.forEach {$0.isSelected = sender == $0}
   }
 }
 

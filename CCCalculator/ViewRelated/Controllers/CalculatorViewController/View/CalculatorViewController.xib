@@ -18,6 +18,11 @@
                 <outlet property="textField" destination="4RD-qy-3Me" id="lH4-ZO-lks"/>
                 <outlet property="undoButton" destination="VyQ-cO-LTB" id="liD-Dv-n0W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="operationButtons" destination="M9e-09-7sa" collectionClass="NSMutableArray" id="clE-Rk-4li"/>
+                <outletCollection property="operationButtons" destination="RI7-6i-b6m" collectionClass="NSMutableArray" id="7uy-xZ-efX"/>
+                <outletCollection property="operationButtons" destination="whH-th-BcP" collectionClass="NSMutableArray" id="hh0-XC-IDc"/>
+                <outletCollection property="operationButtons" destination="IYr-sk-A5k" collectionClass="NSMutableArray" id="cgh-XU-QzU"/>
+                <outletCollection property="operationButtons" destination="ojr-tC-KtC" collectionClass="NSMutableArray" id="Cri-Zf-gVk"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
