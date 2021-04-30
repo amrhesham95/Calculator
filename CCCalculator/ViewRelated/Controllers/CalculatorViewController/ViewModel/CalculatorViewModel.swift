@@ -56,6 +56,7 @@ class CalculatorViewModel: ViewModel {
   override init() {
     super.init()
     bindResultToOperations()
+    startListeningToNotifications()
   }
   
   func updateValueWith(_ text: String?) {
@@ -64,6 +65,7 @@ class CalculatorViewModel: ViewModel {
       return
     }
     inputValueSubject.send(valueAsNumber)
+    postTextFieldChangeNotification(value: valueAsNumber)
   }
   
   func undoOperation(at index: Int) {
@@ -145,3 +147,30 @@ private extension CalculatorViewModel {
     resultSubject.send(sum)
   }
 }
+
+// MARK: - Notifications Handlers
+//
+private extension CalculatorViewModel {
+  
+  func postTextFieldChangeNotification(value: Double) {
+    
+    let dataDictionary: [String: Double] = [Constants.calculatorTextFieldValue: value]
+    // post a notification
+    NotificationCenter.default.post(name: .CalculatorTextFieldDidChange, object: nil, userInfo: dataDictionary)
+  }
+  
+  func startListeningToNotifications() {
+    let notificationCenter = NotificationCenter.default
+    notificationCenter.addObserver(self, selector: #selector(didReceiveCurrencyConversionOperation), name: .DidConvertCurrencySuccessfully, object: nil)
+  }
+  
+  @objc func didReceiveCurrencyConversionOperation(notification: NSNotification) {
+    if let value = notification.userInfo?[Constants.currencyTextFieldValue] as? Double {
+      let conversionOperation = Operation(index: 0, value: value, type: .add)
+      operations.send([conversionOperation])
+      removedOperations.removeAll()
+    }
+  }
+}
+
+

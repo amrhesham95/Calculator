@@ -27,6 +27,7 @@ class CurrencyConverterViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    bindOnTextFieldObserevable()
     textFieldBinding()
     bindUSDValue()
     bindIsValidValue()
@@ -63,6 +64,12 @@ extension CurrencyConverterViewController {
     }.disposed(by: disposeBag)
   }
   
+  func bindOnTextFieldObserevable() {
+    viewModel.converterInputValueSubject.subscribe { [weak self] inputValue in
+      self?.textField.text = "\(inputValue)"
+    }.disposed(by: disposeBag)
+  }
+
   func textFieldBinding() {
     textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
   }

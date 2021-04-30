@@ -36,6 +36,8 @@
 		EF784B3D263B59F400C88B95 /* String+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B3C263B59F400C88B95 /* String+Handlers.swift */; };
 		EF784B42263B634A00C88B95 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B41263B634A00C88B95 /* Currency.swift */; };
 		EF784B46263B66DF00C88B95 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B45263B66DF00C88B95 /* AppCoordinator.swift */; };
+		EF9C3DE2263C426A00283CD6 /* NotificationNames+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */; };
+		EF9C3DE6263C49F400283CD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE5263C49F400283CD6 /* Constants.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
 		EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */; };
@@ -76,6 +78,8 @@
 		EF784B3C263B59F400C88B95 /* String+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Handlers.swift"; sourceTree = "<group>"; };
 		EF784B41263B634A00C88B95 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		EF784B45263B66DF00C88B95 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationNames+Helpers.swift"; sourceTree = "<group>"; };
+		EF9C3DE5263C49F400283CD6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		EF0694F72630BC820000FC0F = {
 			isa = PBXGroup;
 			children = (
+				EF9C3DE4263C49EB00283CD6 /* Settings */,
 				EF784B44263B66CF00C88B95 /* ViewRelated */,
 				EFD9F9AD263A19E000766B28 /* Models */,
 				EF0791612639D60900D229C3 /* Classes */,
@@ -160,9 +165,8 @@
 		EF06954F2630CA150000FC0F /* CurrencyConverterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EF9C3DDC263C334200283CD6 /* View */,
 				EFD9F9B6263B44B400766B28 /* ViewModel */,
-				EF0695502630CA2D0000FC0F /* CurrencyConverterViewController.swift */,
-				EF0695512630CA2D0000FC0F /* CurrencyConverterViewController.xib */,
 			);
 			path = CurrencyConverterViewController;
 			sourceTree = "<group>";
@@ -239,6 +243,7 @@
 				EF34F4EA2630DF2D007088A0 /* NSObject+Helpers.swift */,
 				EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */,
 				EF784B3C263B59F400C88B95 /* String+Handlers.swift */,
+				EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +266,23 @@
 				EF784B45263B66DF00C88B95 /* AppCoordinator.swift */,
 			);
 			path = ViewRelated;
+			sourceTree = "<group>";
+		};
+		EF9C3DDC263C334200283CD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF0695502630CA2D0000FC0F /* CurrencyConverterViewController.swift */,
+				EF0695512630CA2D0000FC0F /* CurrencyConverterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF9C3DE4263C49EB00283CD6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EF9C3DE5263C49F400283CD6 /* Constants.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		EFD9F9AD263A19E000766B28 /* Models */ = {
@@ -384,6 +406,7 @@
 				EF0695492630C7E90000FC0F /* CalculatorViewController.swift in Sources */,
 				EFD9F9C3263B4FE900766B28 /* Network.swift in Sources */,
 				EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */,
+				EF9C3DE6263C49F400283CD6 /* Constants.swift in Sources */,
 				EF0695622630D0BD0000FC0F /* Observer.swift in Sources */,
 				EF06955B2630D0550000FC0F /* BehaviorSubject.swift in Sources */,
 				EF07915E2639D5C300D229C3 /* CalculatorViewModel.swift in Sources */,
@@ -392,6 +415,7 @@
 				EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */,
 				EF0791672639D64500D229C3 /* State.swift in Sources */,
 				EF0695522630CA2D0000FC0F /* CurrencyConverterViewController.swift in Sources */,
+				EF9C3DE2263C426A00283CD6 /* NotificationNames+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

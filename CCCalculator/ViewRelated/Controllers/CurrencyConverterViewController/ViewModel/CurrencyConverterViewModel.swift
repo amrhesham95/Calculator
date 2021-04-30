@@ -16,6 +16,7 @@ class CurrencyConverterViewModel: ViewModel {
   let isValidValueSubject: BehaviorSubject<Bool> = BehaviorSubject<Bool>(false)
   let converterInputValueSubject: BehaviorSubject<String> = BehaviorSubject<String>("")
   private let currencySubject: PublishSubject<Double> = PublishSubject<Double>()
+  
   private let disposeBag = DisposeBag()
   private let store: CurrencyStoreProtocol
   
@@ -25,6 +26,7 @@ class CurrencyConverterViewModel: ViewModel {
     self.store = store
     super.init()
     
+    startListeningToNotifications()
     bindOnCurrency()
     bindOnConverterInputValue()
   }
@@ -78,7 +80,31 @@ private extension CurrencyConverterViewModel {
     let usdString = String(format: "%.2f", usdValue)
     DispatchQueue.main.async { [weak self] in
       self?.usdValueSubject.send("USD: \(usdString)$")
+      self?.postCurrencyConversionNotification(value: egpValue)
     }
   }
 }
 
+// MARK: - Notifications Handlers
+//
+private extension CurrencyConverterViewModel {
+  /// Starts listening for Notifications
+  ///
+  func startListeningToNotifications() {
+    let notificationCenter = NotificationCenter.default
+    notificationCenter.addObserver(self, selector: #selector(didReceiveCalculatorTextFieldChange), name: .CalculatorTextFieldDidChange, object: nil)
+  }
+  
+  @objc func didReceiveCalculatorTextFieldChange(notification: NSNotification) {
+    if let value = notification.userInfo?[Constants.calculatorTextFieldValue] as? Double {
+      converterInputValueSubject.send("\(value)")
+    }
+  }
+  
+  func postCurrencyConversionNotification(value: Double) {
+    
+    let dataDictionary: [String: Double] = [Constants.currencyTextFieldValue: value]
+    // post a notification
+    NotificationCenter.default.post(name: .DidConvertCurrencySuccessfully, object: nil, userInfo: dataDictionary)
+  }
+}
