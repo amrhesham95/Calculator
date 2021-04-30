@@ -11,9 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="CCCalculator" customModuleProvider="target">
             <connections>
+                <outlet property="redoButton" destination="IEn-t6-tir" id="3KK-ch-qpK"/>
                 <outlet property="resultLabel" destination="a4d-0x-bH5" id="vAS-fY-QmT"/>
                 <outlet property="tableView" destination="S9R-ha-CFs" id="b0x-sl-4JS"/>
                 <outlet property="textField" destination="4RD-qy-3Me" id="lH4-ZO-lks"/>
+                <outlet property="undoButton" destination="VyQ-cO-LTB" id="liD-Dv-n0W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

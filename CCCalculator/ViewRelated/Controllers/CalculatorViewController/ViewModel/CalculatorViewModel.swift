@@ -16,6 +16,9 @@ class CalculatorViewModel: ViewModel {
   private let disposeBag = DisposeBag()
   
   var operations: BehaviorSubject<[Operation?]> = BehaviorSubject<[Operation?]>([])
+  var removedOperations: BehaviorSubject<[Operation]> = BehaviorSubject<[Operation]>([])
+  let isUndoActive = BehaviorSubject<Bool>(false)
+  let isRedoActive = BehaviorSubject<Bool>(false)
     
   var operationsCount: Int {
     return operations.value.compactMap {$0}.count
@@ -24,9 +27,6 @@ class CalculatorViewModel: ViewModel {
   func operationForRowAt(_ index: IndexPath) -> Operation {
     return operations.value.compactMap {$0}[index.row]
   }
-  
-  // maybe replaced with stack
-  var removedOperations = [Operation]()
   
   /// Operation type that is currently chosen (+, -, *, /)
   ///
@@ -55,6 +55,8 @@ class CalculatorViewModel: ViewModel {
   //MARK: - Init
   override init() {
     super.init()
+    bindOperations()
+    bindRemovedOperations()
     bindResultToOperations()
     startListeningToNotifications()
   }
@@ -78,16 +80,38 @@ class CalculatorViewModel: ViewModel {
     newOperations[index] = nil
     
     operations.send(newOperations)
-    removedOperations.append(operation)
+    
+    var newRemovedOperations = removedOperations.value
+    newRemovedOperations.append(operation)
+    removedOperations.send(newRemovedOperations)
   }
   
   func redoOperation() {
-    guard removedOperations.count > 0 else { return }
-    let operation = removedOperations.removeLast()
+    guard removedOperations.value.count > 0 else { return }
+    var newRemovedOperations = removedOperations.value
+    let operation = newRemovedOperations.removeLast()
+    removedOperations.send(newRemovedOperations)
     var newOperations = operations.value
     newOperations[operation.index] = operation
     operations.send(newOperations)
   }
+}
+
+// MARK: - Binding
+//
+private extension CalculatorViewModel {
+  func bindOperations() {
+    operations.subscribe { [weak self] operations in
+      self?.isUndoActive.send(!operations.compactMap{$0}.isEmpty)
+    }.disposed(by: disposeBag)
+  }
+  
+  func bindRemovedOperations() {
+    removedOperations.subscribe { [weak self] removedOperations in
+      self?.isRedoActive.send(!removedOperations.isEmpty)
+    }.disposed(by: disposeBag)
+  }
+
 }
 
 // MARK: - Public Handlers
@@ -100,7 +124,6 @@ extension CalculatorViewModel {
     var newOperations = operations.value
     newOperations.append(Operation(index: operations.value.count, value: inputValueSubject.value, type: type))
     operations.send(newOperations)
-    
   }
   
   func getSafeIndex() -> Int {
@@ -168,7 +191,7 @@ private extension CalculatorViewModel {
     if let value = notification.userInfo?[Constants.currencyTextFieldValue] as? Double {
       let conversionOperation = Operation(index: 0, value: value, type: .add)
       operations.send([conversionOperation])
-      removedOperations.removeAll()
+      removedOperations.send([])
     }
   }
 }
