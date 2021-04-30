@@ -38,6 +38,9 @@
 		EF784B46263B66DF00C88B95 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B45263B66DF00C88B95 /* AppCoordinator.swift */; };
 		EF9C3DE2263C426A00283CD6 /* NotificationNames+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */; };
 		EF9C3DE6263C49F400283CD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE5263C49F400283CD6 /* Constants.swift */; };
+		EF9C3DF1263C90D700283CD6 /* OperationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DEF263C90D700283CD6 /* OperationCollectionViewCell.swift */; };
+		EF9C3DF2263C90D700283CD6 /* OperationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9C3DF0263C90D700283CD6 /* OperationCollectionViewCell.xib */; };
+		EF9C3DF5263C954C00283CD6 /* CollectionView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DF4263C954C00283CD6 /* CollectionView+Helpers.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
 		EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */; };
@@ -80,6 +83,9 @@
 		EF784B45263B66DF00C88B95 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationNames+Helpers.swift"; sourceTree = "<group>"; };
 		EF9C3DE5263C49F400283CD6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EF9C3DEF263C90D700283CD6 /* OperationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF9C3DF0263C90D700283CD6 /* OperationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperationCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF9C3DF4263C954C00283CD6 /* CollectionView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Helpers.swift"; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
@@ -167,6 +173,8 @@
 			children = (
 				EF9C3DDC263C334200283CD6 /* View */,
 				EFD9F9B6263B44B400766B28 /* ViewModel */,
+				EF9C3DEF263C90D700283CD6 /* OperationCollectionViewCell.swift */,
+				EF9C3DF0263C90D700283CD6 /* OperationCollectionViewCell.xib */,
 			);
 			path = CurrencyConverterViewController;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 				EF34F4ED2630DF61007088A0 /* UIView+Helpers.swift */,
 				EF784B3C263B59F400C88B95 /* String+Handlers.swift */,
 				EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */,
+				EF9C3DF4263C954C00283CD6 /* CollectionView+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0695102630BC850000FC0F /* LaunchScreen.storyboard in Resources */,
+				EF9C3DF2263C90D700283CD6 /* OperationCollectionViewCell.xib in Resources */,
 				EF06954A2630C7E90000FC0F /* CalculatorViewController.xib in Resources */,
 				EF0695532630CA2D0000FC0F /* CurrencyConverterViewController.xib in Resources */,
 				EF06950D2630BC850000FC0F /* Assets.xcassets in Resources */,
@@ -395,6 +405,7 @@
 				EFD9F9C0263B4F1800766B28 /* CurrencyStore.swift in Sources */,
 				EF0695442630BF710000FC0F /* AppTab.swift in Sources */,
 				EF34F4EB2630DF2D007088A0 /* NSObject+Helpers.swift in Sources */,
+				EF9C3DF1263C90D700283CD6 /* OperationCollectionViewCell.swift in Sources */,
 				EF34F50E2630F357007088A0 /* ErrorModel.swift in Sources */,
 				EF06956D2630D12B0000FC0F /* DisposeBag.swift in Sources */,
 				EF34F4EE2630DF61007088A0 /* UIView+Helpers.swift in Sources */,
@@ -415,6 +426,7 @@
 				EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */,
 				EF0791672639D64500D229C3 /* State.swift in Sources */,
 				EF0695522630CA2D0000FC0F /* CurrencyConverterViewController.swift in Sources */,
+				EF9C3DF5263C954C00283CD6 /* CollectionView+Helpers.swift in Sources */,
 				EF9C3DE2263C426A00283CD6 /* NotificationNames+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

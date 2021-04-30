@@ -10,6 +10,8 @@ import UIKit
 
 // MARK: - UIView + Helpers
 //
+/// UIView Class Methods
+///
 extension UIView {
   
   /// Add and fix `UIView` on `ContainerView`
@@ -29,4 +31,11 @@ extension UIView {
     constraints.forEach { $0.priority = .defaultHigh }
     NSLayoutConstraint.activate(constraints)
   }
+  
+  /// Returns the Nib associated with the received: It's filename is expected to match the Class Name
+  ///
+  class func loadNib() -> UINib {
+    return UINib(nibName: classNameWithoutNamespaces, bundle: nil)
+  }
+  
 }

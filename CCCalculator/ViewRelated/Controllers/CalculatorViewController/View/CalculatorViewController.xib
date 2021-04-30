@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="CCCalculator" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="R9G-fy-qyK" id="WzQ-st-B5q"/>
                 <outlet property="equalButton" destination="ojr-tC-KtC" id="KRv-Qt-3qf"/>
                 <outlet property="redoButton" destination="IEn-t6-tir" id="3KK-ch-qpK"/>
                 <outlet property="resultLabel" destination="a4d-0x-bH5" id="vAS-fY-QmT"/>
-                <outlet property="tableView" destination="S9R-ha-CFs" id="b0x-sl-4JS"/>
                 <outlet property="textField" destination="4RD-qy-3Me" id="lH4-ZO-lks"/>
                 <outlet property="undoButton" destination="VyQ-cO-LTB" id="liD-Dv-n0W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -112,21 +112,27 @@
                         <constraint firstItem="1KS-rw-o4I" firstAttribute="leading" secondItem="ei2-bi-HeC" secondAttribute="leading" constant="8" id="yzT-yX-TE2"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S9R-ha-CFs">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="R9G-fy-qyK">
                     <rect key="frame" x="8" y="168.5" width="398" height="685.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="imf-oB-3Di">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="S9R-ha-CFs" secondAttribute="bottom" constant="8" id="C91-p7-s3h"/>
-                <constraint firstItem="S9R-ha-CFs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="FtV-aP-pIZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S9R-ha-CFs" secondAttribute="trailing" constant="8" id="egS-dA-R3y"/>
+                <constraint firstItem="R9G-fy-qyK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="DfH-F5-No7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="R9G-fy-qyK" secondAttribute="bottom" constant="8" id="H13-H0-4gC"/>
+                <constraint firstItem="R9G-fy-qyK" firstAttribute="top" secondItem="ei2-bi-HeC" secondAttribute="bottom" constant="8" id="XlF-lk-ZMD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ei2-bi-HeC" secondAttribute="trailing" id="fMg-cd-U7Y"/>
                 <constraint firstItem="ei2-bi-HeC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gyo-VQ-rkr"/>
                 <constraint firstItem="ei2-bi-HeC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="maP-cA-Cgk"/>
-                <constraint firstItem="S9R-ha-CFs" firstAttribute="top" secondItem="ei2-bi-HeC" secondAttribute="bottom" constant="8" id="nDQ-Yg-6qb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R9G-fy-qyK" secondAttribute="trailing" constant="8" id="r19-60-Kgr"/>
             </constraints>
             <point key="canvasLocation" x="-259" y="88"/>
         </view>

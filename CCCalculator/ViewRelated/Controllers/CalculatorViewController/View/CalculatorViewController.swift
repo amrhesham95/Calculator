@@ -13,7 +13,7 @@ class CalculatorViewController: UIViewController {
   
   // MARK: - Outlets
   
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var resultLabel: UILabel!
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var undoButton: UIButton!
@@ -32,13 +32,14 @@ class CalculatorViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.dataSource = self
-    tableView.delegate = self
+    collectionView.dataSource = self
+    collectionView.delegate = self
     
     viewModel.operations.subscribe { [weak self] _ in
-      self?.tableView.reloadData()
+      self?.collectionView.reloadData()
     }.disposed(by: disposeBag)
     
+    configureCollectionView()
     equalButtonBinding()
     undoButtonBinding()
     redoButtonBinding()
@@ -95,6 +96,12 @@ private extension CalculatorViewController {
   func handleButtonsSelection(_ sender: UIButton) {
     operationButtons.forEach {$0.isSelected = sender == $0}
   }
+  
+  func configureCollectionView() {
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    collectionView.registerCellNib(OperationCollectionViewCell.self)
+  }
 }
 
 
@@ -137,26 +144,39 @@ private extension CalculatorViewController {
 }
 
 
-// MARK: - CalculatorViewController+UITableViewDataSource
-extension CalculatorViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK: - CalculatorViewController+UICollectionViewDataSource
+extension CalculatorViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     viewModel.operationsCount
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeue(at: indexPath) as OperationCollectionViewCell
     let operation = viewModel.operationForRowAt(indexPath)
-    cell.textLabel?.text = "\(operation.value)"
-    cell.detailTextLabel?.text = operation.type.rawValue
+    cell.operationLabel.text = "\(operation)"
     return cell
+
   }
 }
 
-// MARK: - CalculatorViewController+UITableViewDelegate
-extension CalculatorViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
+// MARK: - CalculatorViewController+UICollectionViewDelegate
+extension CalculatorViewController: UICollectionViewDelegate {
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    collectionView.deselectItem(at: indexPath, animated: true)
     let safeIndex = viewModel.getSafeIndex(with: indexPath.row)
     viewModel.undoOperation(at: safeIndex)
   }
 }
+
+// MARK: - CalculatorViewController+UICollectionViewDelegateFlowLayout
+extension CalculatorViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 4
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 1
+  }
+}
+
