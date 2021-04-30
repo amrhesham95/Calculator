@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="CCCalculator" customModuleProvider="target">
             <connections>
+                <outlet property="equalButton" destination="ojr-tC-KtC" id="KRv-Qt-3qf"/>
                 <outlet property="redoButton" destination="IEn-t6-tir" id="3KK-ch-qpK"/>
                 <outlet property="resultLabel" destination="a4d-0x-bH5" id="vAS-fY-QmT"/>
                 <outlet property="tableView" destination="S9R-ha-CFs" id="b0x-sl-4JS"/>

@@ -18,6 +18,7 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var undoButton: UIButton!
   @IBOutlet weak var redoButton: UIButton!
+  @IBOutlet weak var equalButton: UIButton!
   
   // MARK: - Properties
   
@@ -36,6 +37,7 @@ class CalculatorViewController: UIViewController {
       self?.tableView.reloadData()
     }.disposed(by: disposeBag)
     
+    equalButtonBinding()
     undoButtonBinding()
     redoButtonBinding()
     textFieldBinding()
@@ -112,6 +114,13 @@ private extension CalculatorViewController {
       self?.redoButton.isEnabled = isActive
     }.disposed(by: disposeBag)
   }
+  
+  func equalButtonBinding() {
+    viewModel.isEqualActive.subscribe { [weak self] isActive in
+      self?.equalButton.isEnabled = isActive
+    }.disposed(by: disposeBag)
+  }
+
 }
 
 

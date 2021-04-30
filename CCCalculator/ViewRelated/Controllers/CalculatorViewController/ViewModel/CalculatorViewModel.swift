@@ -19,6 +19,7 @@ class CalculatorViewModel: ViewModel {
   var removedOperations: BehaviorSubject<[Operation]> = BehaviorSubject<[Operation]>([])
   let isUndoActive = BehaviorSubject<Bool>(false)
   let isRedoActive = BehaviorSubject<Bool>(false)
+  let isEqualActive = BehaviorSubject<Bool>(false)
     
   var operationsCount: Int {
     return operations.value.compactMap {$0}.count
@@ -44,29 +45,31 @@ class CalculatorViewModel: ViewModel {
   
   /// Result subject instance
   ///
-  var inputValueSubject = BehaviorSubject<Double>(0)
+  var inputValueSubject = BehaviorSubject<String>("")
   
   /// Result observable instance
   ///
-  var inputValueObservable: Observable<Double> {
+  var inputValueObservable: Observable<String> {
     return inputValueSubject
   }
   
   //MARK: - Init
   override init() {
     super.init()
-    bindOperations()
-    bindRemovedOperations()
+    
+    bindIsEqualActive()
+    bindIsUndoActive()
+    bindIsRedoActive()
     bindResultToOperations()
     startListeningToNotifications()
   }
   
   func updateValueWith(_ text: String?) {
+    inputValueSubject.send(text ?? "")
     guard let valueAsNumber = Double(text ?? "") else {
 //      state.send(.failure())
       return
     }
-    inputValueSubject.send(valueAsNumber)
     postTextFieldChangeNotification(value: valueAsNumber)
   }
   
@@ -100,15 +103,21 @@ class CalculatorViewModel: ViewModel {
 // MARK: - Binding
 //
 private extension CalculatorViewModel {
-  func bindOperations() {
+  func bindIsUndoActive() {
     operations.subscribe { [weak self] operations in
       self?.isUndoActive.send(!operations.compactMap{$0}.isEmpty)
     }.disposed(by: disposeBag)
   }
   
-  func bindRemovedOperations() {
+  func bindIsRedoActive() {
     removedOperations.subscribe { [weak self] removedOperations in
       self?.isRedoActive.send(!removedOperations.isEmpty)
+    }.disposed(by: disposeBag)
+  }
+  
+  func bindIsEqualActive() {
+    inputValueObservable.subscribe { [weak self] inputValue in
+      self?.isEqualActive.send(!inputValue.isEmpty)
     }.disposed(by: disposeBag)
   }
 
@@ -122,7 +131,7 @@ extension CalculatorViewModel {
     
     guard let type = operationType else { return }
     var newOperations = operations.value
-    newOperations.append(Operation(index: operations.value.count, value: inputValueSubject.value, type: type))
+    newOperations.append(Operation(index: operations.value.count, value: inputValueSubject.value.doubleValue ?? .zero, type: type))
     operations.send(newOperations)
   }
   
