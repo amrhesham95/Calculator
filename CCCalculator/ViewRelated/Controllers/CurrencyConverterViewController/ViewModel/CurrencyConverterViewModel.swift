@@ -13,6 +13,7 @@ class CurrencyConverterViewModel: ViewModel {
   
   // MARK: - Properties
   let usdValueSubject: PublishSubject<String> = PublishSubject<String>()
+  let isValidValueSubject: BehaviorSubject<Bool> = BehaviorSubject<Bool>(false)
   let converterInputValueSubject: BehaviorSubject<String> = BehaviorSubject<String>("")
   private let currencySubject: PublishSubject<Double> = PublishSubject<Double>()
   private let disposeBag = DisposeBag()
@@ -25,6 +26,7 @@ class CurrencyConverterViewModel: ViewModel {
     super.init()
     
     bindOnCurrency()
+    bindOnConverterInputValue()
   }
 }
 
@@ -57,6 +59,16 @@ private extension CurrencyConverterViewModel {
   func bindOnCurrency() {
     currencySubject.subscribe { [weak self] exchangeRate in
       self?.convertAndUpdateLabel(exchangeRate: exchangeRate)
+    }.disposed(by: disposeBag)
+  }
+  
+  func bindOnConverterInputValue() {
+    converterInputValueSubject.subscribe { [weak self] inputValue in
+      guard let value = inputValue.doubleValue, value > 0 else {
+        self?.isValidValueSubject.send(false)
+        return
+      }
+      self?.isValidValueSubject.send(true)
     }.disposed(by: disposeBag)
   }
   

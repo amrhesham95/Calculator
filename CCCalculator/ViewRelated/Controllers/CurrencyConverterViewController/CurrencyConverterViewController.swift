@@ -29,6 +29,7 @@ class CurrencyConverterViewController: UIViewController {
     
     textFieldBinding()
     bindUSDValue()
+    bindIsValidValue()
   }
   
   // MARK: - Init
@@ -53,6 +54,12 @@ extension CurrencyConverterViewController {
   func bindUSDValue() {
     viewModel.usdValueSubject.subscribe { [weak self] usdValue in
       self?.usdLabel.text = usdValue
+    }.disposed(by: disposeBag)
+  }
+  
+  func bindIsValidValue() {
+    viewModel.isValidValueSubject.subscribe { [weak self] isValid in
+      self?.convertButton.isEnabled = isValid
     }.disposed(by: disposeBag)
   }
   
