@@ -80,7 +80,9 @@ private extension CalculatorViewController {
   
   func configureTextField() {
     textField.keyboardType = .asciiCapableNumberPad
+    setDoneOnKeyboardTo(textField)
   }
+  
   func handleButtonsSelection(_ sender: UIButton) {
     operationButtons.forEach {$0.isSelected = sender == $0}
   }

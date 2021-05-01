@@ -12,6 +12,7 @@ import UIKit
 class CurrencyConverterViewController: ViewController {
   
   // MARK: - Outlets
+  
   @IBOutlet weak var usdLabel: UILabel!
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var convertButton: UIButton!
@@ -27,6 +28,8 @@ class CurrencyConverterViewController: ViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setDoneOnKeyboardTo(textField)
+    configureTextField()
     bindOnTextFieldObserevable()
     textFieldBinding()
     bindUSDValue()
@@ -35,8 +38,18 @@ class CurrencyConverterViewController: ViewController {
     bindLoadingState(to: viewModel)
   }
   
+  // MARK: - IBActions
+  
   @IBAction func convertButtonTapped(_ sender: Any) {
     viewModel.convert()
+  }
+}
+
+// MARK: - View Configurations
+//
+extension CurrencyConverterViewController {
+  func configureTextField() {
+    textField.keyboardType = .asciiCapableNumberPad
   }
 }
 

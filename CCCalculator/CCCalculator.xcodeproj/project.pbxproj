@@ -46,6 +46,7 @@
 		EF9C3E05263D4E3400283CD6 /* ProgressViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E04263D4E3400283CD6 /* ProgressViewType.swift */; };
 		EF9C3E08263D4F4600283CD6 /* InProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9C3E07263D4F4600283CD6 /* InProgressView.xib */; };
 		EF9C3E24263D649000283CD6 /* CurrencyConverterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E23263D649000283CD6 /* CurrencyConverterViewControllerTests.swift */; };
+		EF9C3E2D263D84D700283CD6 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E29263D83F800283CD6 /* UIViewController+Helpers.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
 		EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */; };
@@ -108,6 +109,7 @@
 		EF9C3E12263D642500283CD6 /* CCCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9C3E16263D642600283CD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF9C3E23263D649000283CD6 /* CurrencyConverterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewControllerTests.swift; sourceTree = "<group>"; };
+		EF9C3E29263D83F800283CD6 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				EF784B3C263B59F400C88B95 /* String+Handlers.swift */,
 				EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */,
 				EF9C3DF4263C954C00283CD6 /* CollectionView+Helpers.swift */,
+				EF9C3E29263D83F800283CD6 /* UIViewController+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				EF784B3D263B59F400C88B95 /* String+Handlers.swift in Sources */,
 				EF0695492630C7E90000FC0F /* CalculatorViewController.swift in Sources */,
 				EFD9F9C3263B4FE900766B28 /* Network.swift in Sources */,
+				EF9C3E2D263D84D700283CD6 /* UIViewController+Helpers.swift in Sources */,
 				EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */,
 				EF9C3DE6263C49F400283CD6 /* Constants.swift in Sources */,
 				EF0695622630D0BD0000FC0F /* Observer.swift in Sources */,
