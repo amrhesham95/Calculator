@@ -61,10 +61,12 @@ extension ViewController {
     return viewModel.state.subscribe { [weak self] state in
       guard let self = self else { return }
       if case .failure(let error) = state {
-        let alertController =  UIAlertController(title: "Conversion Failed", message: error.localizedDescription, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true)
+        DispatchQueue.main.async { [weak self] in 
+          let alertController =  UIAlertController(title: "Conversion Failed", message: error.localizedDescription, preferredStyle: .alert)
+          let alertAction = UIAlertAction(title: "OK", style: .default)
+          alertController.addAction(alertAction)
+          self?.present(alertController, animated: true)
+        }
       }
     }.disposed(by: disposeBag)
   }
