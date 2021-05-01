@@ -47,29 +47,49 @@ class CalculatorViewController: UIViewController {
 //
 private extension CalculatorViewController {
   
+  /// Add button action
+  ///
   @IBAction func addButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .add
     handleButtonsSelection(sender)
   }
+  
+  /// subtract button action
+  ///
   @IBAction func subtractButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .subtract
     handleButtonsSelection(sender)
   }
+  
+  /// divide button action
+  ///
   @IBAction func divideButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .divide
     handleButtonsSelection(sender)
   }
+  
+  /// multiply button action
+  ///
   @IBAction func multiplyButtonTapped(_ sender: UIButton) {
     viewModel.operationType = .multiply
     handleButtonsSelection(sender)
   }
+  
+  /// Equal button action
+  ///
   @IBAction func equalButtonTapped(_ sender: UIButton) {
     viewModel.calculate()
   }
+  
+  /// undo button action
+  ///
   @IBAction func undoButtonTapped(_ sender: Any) {
     guard viewModel.operationsCount - 1 >= 0 else { return }
     viewModel.undoOperation(at: viewModel.getSafeIndex())
   }
+  
+  /// redo button action
+  ///
   @IBAction func redoButtonTapped(_ sender: Any) {
     viewModel.redoOperation()
   }
@@ -78,15 +98,21 @@ private extension CalculatorViewController {
 // MARK: - View Configurations
 private extension CalculatorViewController {
   
+  /// Text field configurations (keypadType, done button creation)
+  ///
   func configureTextField() {
     textField.keyboardType = .asciiCapableNumberPad
     setDoneOnKeyboardTo(textField)
   }
   
+  /// fired when any of operations buttons pressed to select it and deselect the others
+  ///
   func handleButtonsSelection(_ sender: UIButton) {
     operationButtons.forEach {$0.isSelected = sender == $0}
   }
   
+  /// Configure collection view (delegate, datasource, nib registration etc...)
+  ///
   func configureCollectionView() {
     collectionView.delegate = self
     collectionView.dataSource = self
