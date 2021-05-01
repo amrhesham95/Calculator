@@ -79,6 +79,10 @@
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">let</span> <span class="variable">isUndoActive</span> </code></pre>
 </div>
+<div class="summary" role="doc-abstract">
+    <p>Undo subject instance</p>
+
+</div>
 </div>
 <div role="article" class="variable" id="calculatorviewmodel.isredoactive">
     <h3>
@@ -86,6 +90,10 @@
     </h3>
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">let</span> <span class="variable">isRedoActive</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Redo subject instance</p>
+
 </div>
 </div>
 <div role="article" class="variable" id="calculatorviewmodel.isequalactive">
@@ -95,6 +103,10 @@
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">let</span> <span class="variable">isEqualActive</span> </code></pre>
 </div>
+<div class="summary" role="doc-abstract">
+    <p>Equal subject instance</p>
+
+</div>
 </div>
 <div role="article" class="variable" id="calculatorviewmodel.operationscount">
     <h3>
@@ -102,6 +114,10 @@
     </h3>
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">var</span> <span class="variable">operationsCount</span>: <span class="type">Int</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Visible operations count</p>
+
 </div>
 </div>
 <div role="article" class="variable" id="calculatorviewmodel.operationtype">
@@ -175,6 +191,29 @@
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">func</span> <span class="function">operationForRowAt</span>(<span class="keyword">_</span> <span class="variable">index</span>: <span class="type">IndexPath</span>) -&gt; <span class="type">Operation</span> </code></pre>
 </div>
+<div class="summary" role="doc-abstract">
+    <p>Returns the operation assoicated with the index</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>index</th>
+    <td><code class="type">Index​Path</code></td>
+    <td><p>index of the selected operation</p>
+</td>
+</tr>
+  </tbody>
+</table>
 </div>
 <div role="article" class="function" id="calculatorviewmodel.updatevaluewith(_:)">
     <h3>
@@ -182,6 +221,10 @@
     </h3>
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">func</span> <span class="function">updateValueWith</span>(<span class="keyword">_</span> <span class="variable">text</span>: <span class="type">String</span>?) </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Call to update the value of inputValueSubject (textfield subject)</p>
+
 </div>
 </div>
 <div role="article" class="function" id="calculatorviewmodel.undooperation(at:)">
@@ -191,6 +234,10 @@
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">func</span> <span class="function">undoOperation</span>(<span class="variable">at</span> <span class="variable">index</span>: <span class="type">Int</span>) </code></pre>
 </div>
+<div class="summary" role="doc-abstract">
+    <p>Call to undo an operation</p>
+
+</div>
 </div>
 <div role="article" class="function" id="calculatorviewmodel.redooperation()">
     <h3>
@@ -198,6 +245,10 @@
     </h3>
     <div class="declaration">
 <pre class="highlight"><code><span class="keyword">func</span> <span class="function">redoOperation</span>() </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Call to redo an operation</p>
+
 </div>
 </div>
 <div role="article" class="function" id="calculatorviewmodel.calculate()">
@@ -245,7 +296,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-05-01T23:52:01+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+    Generated on <time datetime="2021-05-02T00:11:44+0200">2 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
 </p>
     </footer>
 </body>
