@@ -117,7 +117,8 @@ private extension CalculatorViewModel {
   
   func bindIsEqualActive() {
     inputValueObservable.subscribe { [weak self] inputValue in
-      self?.isEqualActive.send(!inputValue.isEmpty)
+      let isEqualActive = !inputValue.isEmpty && self?.operationType != nil ? true : false
+      self?.isEqualActive.send(isEqualActive)
     }.disposed(by: disposeBag)
   }
 
