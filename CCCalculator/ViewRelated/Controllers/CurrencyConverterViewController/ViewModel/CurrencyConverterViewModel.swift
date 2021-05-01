@@ -73,7 +73,7 @@ private extension CurrencyConverterViewModel {
     }.disposed(by: disposeBag)
   }
   
-  /// Bind text field change to validate and decide of convert button should be enabled 
+  /// Bind text field change to validate and decide of convert button should be enabled
   ///
   func bindOnConverterInputValue() {
     converterInputValueSubject.subscribe { [weak self] inputValue in

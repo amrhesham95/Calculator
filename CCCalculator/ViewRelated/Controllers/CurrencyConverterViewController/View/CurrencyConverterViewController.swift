@@ -40,6 +40,8 @@ class CurrencyConverterViewController: ViewController {
   
   // MARK: - IBActions
   
+  /// Convert button action
+  ///
   @IBAction func convertButtonTapped(_ sender: Any) {
     viewModel.convert()
   }
@@ -48,6 +50,8 @@ class CurrencyConverterViewController: ViewController {
 // MARK: - View Configurations
 //
 extension CurrencyConverterViewController {
+  /// Text field configurations (keypadType,)
+  ///
   func configureTextField() {
     textField.keyboardType = .asciiCapableNumberPad
   }
@@ -55,7 +59,8 @@ extension CurrencyConverterViewController {
 
 // MARK: - ViewModel Binding
 //
-extension CurrencyConverterViewController {
+private extension CurrencyConverterViewController {
+  
   func bindUSDValue() {
     viewModel.usdValueSubject.subscribe { [weak self] usdValue in
       DispatchQueue.main.async {
