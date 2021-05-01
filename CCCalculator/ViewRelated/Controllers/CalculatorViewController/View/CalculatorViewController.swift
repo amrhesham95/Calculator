@@ -101,6 +101,14 @@ private extension CalculatorViewController {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.registerCellNib(OperationCollectionViewCell.self)
+    if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+       flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    }
+    collectionView.backgroundColor = .black
+  }
+  
+  func configureCell(_ cell: OperationCollectionViewCell, with model: Operation) {
+    cell.operation = model
   }
 }
 
@@ -153,9 +161,8 @@ extension CalculatorViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeue(at: indexPath) as OperationCollectionViewCell
     let operation = viewModel.operationForRowAt(indexPath)
-    cell.operationLabel.text = "\(operation)"
+    configureCell(cell, with: operation)
     return cell
-
   }
 }
 
@@ -172,11 +179,10 @@ extension CalculatorViewController: UICollectionViewDelegate {
 // MARK: - CalculatorViewController+UICollectionViewDelegateFlowLayout
 extension CalculatorViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 4
+    return Constants.CollectionViewSpacing
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 1
+    return Constants.CollectionViewSpacing
   }
 }
-

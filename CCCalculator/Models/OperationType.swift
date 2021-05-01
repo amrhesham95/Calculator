@@ -9,11 +9,11 @@ import Foundation
 
 enum OperationType: String {
   
-  case add
+  case add = "+"
   
-  case subtract
+  case subtract = "-"
   
-  case divide
+  case divide = "/"
   
-  case multiply
+  case multiply = "*"
 }

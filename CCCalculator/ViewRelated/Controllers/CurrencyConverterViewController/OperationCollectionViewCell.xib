@@ -10,30 +10,47 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OperationCollectionViewCell" customModule="CCCalculator" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gTV-IL-0wX" customClass="OperationCollectionViewCell" customModule="CCCalculator" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-Oo-ns8">
-                        <rect key="frame" x="8" y="8" width="156" height="84"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-79-ZLI">
+                        <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-Oo-ns8">
+                                <rect key="frame" x="16" y="16" width="140" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GM9-Oo-ns8" firstAttribute="leading" secondItem="1FW-79-ZLI" secondAttribute="leading" constant="16" id="e2V-BE-f22"/>
+                            <constraint firstAttribute="trailing" secondItem="GM9-Oo-ns8" secondAttribute="trailing" constant="16" id="rxh-j8-yHG"/>
+                            <constraint firstItem="GM9-Oo-ns8" firstAttribute="top" secondItem="1FW-79-ZLI" secondAttribute="top" constant="16" id="uGH-Sx-YCq"/>
+                            <constraint firstAttribute="bottom" secondItem="GM9-Oo-ns8" secondAttribute="bottom" constant="16" id="x4R-y9-LMx"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="GM9-Oo-ns8" secondAttribute="trailing" constant="8" id="UC2-Qz-lr5"/>
-                <constraint firstItem="GM9-Oo-ns8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="XZW-fp-Oh7"/>
-                <constraint firstItem="GM9-Oo-ns8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="bhS-yF-one"/>
-                <constraint firstAttribute="bottom" secondItem="GM9-Oo-ns8" secondAttribute="bottom" constant="8" id="mUX-FI-bfa"/>
+                <constraint firstAttribute="bottom" secondItem="1FW-79-ZLI" secondAttribute="bottom" id="2os-2d-Fup"/>
+                <constraint firstItem="1FW-79-ZLI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Hnv-rk-h1b"/>
+                <constraint firstAttribute="trailing" secondItem="1FW-79-ZLI" secondAttribute="trailing" id="MhV-3o-1b3"/>
+                <constraint firstItem="1FW-79-ZLI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Zsx-fz-QGN"/>
+                <constraint firstItem="1FW-79-ZLI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cpr-nb-Nko"/>
+                <constraint firstAttribute="bottom" secondItem="1FW-79-ZLI" secondAttribute="bottom" id="jqb-W7-eFt"/>
+                <constraint firstAttribute="trailing" secondItem="1FW-79-ZLI" secondAttribute="trailing" id="koB-vH-AdG"/>
+                <constraint firstItem="1FW-79-ZLI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zor-BY-MaV"/>
             </constraints>
             <size key="customSize" width="172" height="100"/>
             <connections>
+                <outlet property="mainView" destination="1FW-79-ZLI" id="ZnQ-Nn-RJL"/>
                 <outlet property="operationLabel" destination="GM9-Oo-ns8" id="1Nc-KZ-gBT"/>
             </connections>
             <point key="canvasLocation" x="128.98550724637681" y="82.366071428571431"/>

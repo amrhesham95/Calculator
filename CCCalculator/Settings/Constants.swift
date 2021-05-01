@@ -5,7 +5,7 @@
 //  Created by Amr Hesham on 30/04/2021.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Constants
 //
@@ -27,6 +27,9 @@ struct Constants {
   /// CurrencyTextFieldValue sent dictionary key
   ///
   static let currencyTextFieldValue = "CurrencyTextFieldValue"
-
+  
+  /// Spacing value of collection view
+  ///
+  static let CollectionViewSpacing: CGFloat = 8
 }
 

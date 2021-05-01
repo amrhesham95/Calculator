@@ -27,3 +27,11 @@ struct Operation {
     }
   }
 }
+
+// MARK: - Operation+CustomStringConvertible
+//
+extension Operation: CustomStringConvertible {
+  var description: String {
+    return "\(type.rawValue) \(value)"
+  }
+}
