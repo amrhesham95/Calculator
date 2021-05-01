@@ -61,9 +61,7 @@ private extension CurrencyConverterViewModel {
   
   func bindOnCurrency() {
     currencySubject.subscribe { [weak self] exchangeRate in
-      DispatchQueue.main.async { [weak self] in
         self?.convertAndUpdateLabel(exchangeRate: exchangeRate)
-      }
     }.disposed(by: disposeBag)
   }
   

@@ -58,7 +58,9 @@ extension CurrencyConverterViewController {
 extension CurrencyConverterViewController {
   func bindUSDValue() {
     viewModel.usdValueSubject.subscribe { [weak self] usdValue in
-      self?.usdLabel.text = usdValue
+      DispatchQueue.main.async {
+        self?.usdLabel.text = usdValue
+      }
     }.disposed(by: disposeBag)
   }
   

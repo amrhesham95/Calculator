@@ -109,13 +109,17 @@ private extension CalculatorViewController {
   
   func bindOperationsChanges() {
     viewModel.operations.subscribe { [weak self] _ in
-      self?.collectionView.reloadData()
+      DispatchQueue.main.async { [weak self] in
+        self?.collectionView.reloadData()
+      }
     }.disposed(by: disposeBag)
   }
   
   func resultBinding() {
     viewModel.resultObservable.subscribe { [weak self] value in
-      self?.resultLabel.text = String("\(value)")
+      DispatchQueue.main.async { [weak self] in
+        self?.resultLabel.text = String("\(value)")
+      }
     }.disposed(by: disposeBag)
   }
   
@@ -129,19 +133,25 @@ private extension CalculatorViewController {
   
   func undoButtonBinding() {
     viewModel.isUndoActive.subscribe { [weak self] isActive in
-      self?.undoButton.isEnabled = isActive
+      DispatchQueue.main.async {
+        self?.undoButton.isEnabled = isActive
+      }
     }.disposed(by: disposeBag)
   }
   
   func redoButtonBinding() {
     viewModel.isRedoActive.subscribe { [weak self] isActive in
-      self?.redoButton.isEnabled = isActive
+      DispatchQueue.main.async {
+        self?.redoButton.isEnabled = isActive
+      }
     }.disposed(by: disposeBag)
   }
   
   func equalButtonBinding() {
     viewModel.isEqualActive.subscribe { [weak self] isActive in
-      self?.equalButton.isEnabled = isActive
+      DispatchQueue.main.async {
+        self?.equalButton.isEnabled = isActive
+      }
     }.disposed(by: disposeBag)
   }
   

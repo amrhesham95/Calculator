@@ -47,6 +47,10 @@
 		EF9C3E08263D4F4600283CD6 /* InProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9C3E07263D4F4600283CD6 /* InProgressView.xib */; };
 		EF9C3E24263D649000283CD6 /* CurrencyConverterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E23263D649000283CD6 /* CurrencyConverterViewControllerTests.swift */; };
 		EF9C3E2D263D84D700283CD6 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E29263D83F800283CD6 /* UIViewController+Helpers.swift */; };
+		EF9C3E33263DB47100283CD6 /* CurrencyConverterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E32263DB47100283CD6 /* CurrencyConverterViewModelTests.swift */; };
+		EF9C3E38263DB4CE00283CD6 /* MockCurrencyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E37263DB4CE00283CD6 /* MockCurrencyStore.swift */; };
+		EF9C3E3E263DB53900283CD6 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3E3D263DB53900283CD6 /* MockNetworkManager.swift */; };
+		EF9C3E41263DCEBD00283CD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE5263C49F400283CD6 /* Constants.swift */; };
 		EFD9F9AF263A19FF00766B28 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9AE263A19FF00766B28 /* OperationType.swift */; };
 		EFD9F9B2263A36AD00766B28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B1263A36AD00766B28 /* Operation.swift */; };
 		EFD9F9B8263B44D400766B28 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */; };
@@ -110,6 +114,9 @@
 		EF9C3E16263D642600283CD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF9C3E23263D649000283CD6 /* CurrencyConverterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewControllerTests.swift; sourceTree = "<group>"; };
 		EF9C3E29263D83F800283CD6 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
+		EF9C3E32263DB47100283CD6 /* CurrencyConverterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModelTests.swift; sourceTree = "<group>"; };
+		EF9C3E37263DB4CE00283CD6 /* MockCurrencyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCurrencyStore.swift; sourceTree = "<group>"; };
+		EF9C3E3D263DB53900283CD6 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		EFD9F9AE263A19FF00766B28 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		EFD9F9B1263A36AD00766B28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		EFD9F9B7263B44D400766B28 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
@@ -351,6 +358,7 @@
 		EF9C3E13263D642500283CD6 /* CCCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				EF9C3E36263DB4B900283CD6 /* Mocks */,
 				EF9C3E20263D643C00283CD6 /* ViewRelated */,
 				EF9C3E16263D642600283CD6 /* Info.plist */,
 			);
@@ -377,8 +385,18 @@
 			isa = PBXGroup;
 			children = (
 				EF9C3E23263D649000283CD6 /* CurrencyConverterViewControllerTests.swift */,
+				EF9C3E32263DB47100283CD6 /* CurrencyConverterViewModelTests.swift */,
 			);
 			path = CurrencyConverterViewController;
+			sourceTree = "<group>";
+		};
+		EF9C3E36263DB4B900283CD6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				EF9C3E37263DB4CE00283CD6 /* MockCurrencyStore.swift */,
+				EF9C3E3D263DB53900283CD6 /* MockNetworkManager.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		EFD9F9AD263A19E000766B28 /* Models */ = {
@@ -558,6 +576,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9C3E41263DCEBD00283CD6 /* Constants.swift in Sources */,
+				EF9C3E33263DB47100283CD6 /* CurrencyConverterViewModelTests.swift in Sources */,
+				EF9C3E38263DB4CE00283CD6 /* MockCurrencyStore.swift in Sources */,
+				EF9C3E3E263DB53900283CD6 /* MockNetworkManager.swift in Sources */,
 				EF9C3E24263D649000283CD6 /* CurrencyConverterViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
