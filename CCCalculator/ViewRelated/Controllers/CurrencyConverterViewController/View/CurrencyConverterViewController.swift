@@ -20,7 +20,7 @@ class CurrencyConverterViewController: ViewController {
   
   //MARK: - Properties
   
-  private let viewModel: CurrencyConverterViewModel
+  private let viewModel = CurrencyConverterViewModel()
   
   // MARK: - Lifecycle
   
@@ -33,17 +33,6 @@ class CurrencyConverterViewController: ViewController {
     bindIsValidValue()
     bindErrorState(to: viewModel)
     bindLoadingState(to: viewModel)
-  }
-  
-  // MARK: - Init
-  
-  init(viewModel: CurrencyConverterViewModel) {
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
   @IBAction func convertButtonTapped(_ sender: Any) {

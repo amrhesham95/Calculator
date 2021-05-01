@@ -35,7 +35,6 @@
 		EF34F5112630F3CD007088A0 /* ErrorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34F5102630F3CD007088A0 /* ErrorKey.swift */; };
 		EF784B3D263B59F400C88B95 /* String+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B3C263B59F400C88B95 /* String+Handlers.swift */; };
 		EF784B42263B634A00C88B95 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B41263B634A00C88B95 /* Currency.swift */; };
-		EF784B46263B66DF00C88B95 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF784B45263B66DF00C88B95 /* AppCoordinator.swift */; };
 		EF9C3DE2263C426A00283CD6 /* NotificationNames+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */; };
 		EF9C3DE6263C49F400283CD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DE5263C49F400283CD6 /* Constants.swift */; };
 		EF9C3DF1263C90D700283CD6 /* OperationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C3DEF263C90D700283CD6 /* OperationCollectionViewCell.swift */; };
@@ -96,7 +95,6 @@
 		EF34F5102630F3CD007088A0 /* ErrorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorKey.swift; sourceTree = "<group>"; };
 		EF784B3C263B59F400C88B95 /* String+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Handlers.swift"; sourceTree = "<group>"; };
 		EF784B41263B634A00C88B95 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		EF784B45263B66DF00C88B95 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EF9C3DE1263C426A00283CD6 /* NotificationNames+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationNames+Helpers.swift"; sourceTree = "<group>"; };
 		EF9C3DE5263C49F400283CD6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF9C3DEF263C90D700283CD6 /* OperationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			children = (
 				EF9C3DF9263D4D5200283CD6 /* ReusableViews */,
 				EF06953D2630BDD10000FC0F /* Controllers */,
-				EF784B45263B66DF00C88B95 /* AppCoordinator.swift */,
 			);
 			path = ViewRelated;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 				EF9C3E05263D4E3400283CD6 /* ProgressViewType.swift in Sources */,
 				EF0695582630D02F0000FC0F /* Observable.swift in Sources */,
 				EF0695692630D10B0000FC0F /* DisposeBase.swift in Sources */,
-				EF784B46263B66DF00C88B95 /* AppCoordinator.swift in Sources */,
 				EF0695652630D0D60000FC0F /* ObservationToken.swift in Sources */,
 				EF9C3E02263D4DFE00283CD6 /* UIViewController+ProgressViewable.swift in Sources */,
 				EF0695082630BC820000FC0F /* ViewController.swift in Sources */,

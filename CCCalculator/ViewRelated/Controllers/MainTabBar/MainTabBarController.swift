@@ -14,22 +14,14 @@ class MainTabBarController: UITabBarController {
   
   // MARK: - Properties
   
-  private let calculatorViewController: CalculatorViewController
-  private let currencyConverterViewController: CurrencyConverterViewController
+  private let calculatorViewController: CalculatorViewController = {
+    return CalculatorViewController()
+  }()
   
-  // MARK: - Init
-  //
-  init(calculatorViewController: CalculatorViewController,
-       currencyConverterViewController: CurrencyConverterViewController ) {
-    self.calculatorViewController = calculatorViewController
-    self.currencyConverterViewController = currencyConverterViewController
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
+  private let currencyConverterViewController: CurrencyConverterViewController = {
+    return CurrencyConverterViewController()
+  }()
+
   
   // MARK: - Lifecycle
   

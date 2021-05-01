@@ -21,14 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       fatalError()
     }
     return appInstance
-  }
-
-  /// Coordinates app navigation.
-  ///
-  var appCoordinator: AppCoordinator? {
-    return AppCoordinator()
-  }
-  
+  }  
   
   /// Tab Bar Controller
   ///
@@ -53,11 +46,9 @@ private extension AppDelegate {
   /// Sets up the main UIWindow instance wth app coordinator.
   ///
   func setupMainWindow() {
-    let window = UIWindow()
-    window.makeKeyAndVisible()
-    window.rootViewController = appCoordinator?.tabBarController
-    self.window = window
-    
+      self.window = UIWindow(frame: UIScreen.main.bounds)
+      window?.rootViewController = MainTabBarController()
+      window?.makeKeyAndVisible()
   }
 }
 
