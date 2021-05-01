@@ -31,7 +31,12 @@ class CalculatorViewModel: ViewModel {
   
   /// Operation type that is currently chosen (+, -, *, /)
   ///
-  var operationType: OperationType?
+  var operationType: OperationType? {
+    didSet {
+      let isEqualActive = !inputValueSubject.value.isEmpty && operationType != nil ? true : false
+      self.isEqualActive.send(isEqualActive)
+    }
+  }
   
   /// Result subject instance
   ///
@@ -168,13 +173,13 @@ private extension CalculatorViewModel {
       switch $1.type {
       
       case .add:
-        return $1.value + $0
+        return $0 + $1.value
       case .subtract:
-        return $1.value - $0
+        return $0 - $1.value
       case .divide:
-        return $1.value / $0
+        return $0 / $1.value
       case .multiply:
-        return $1.value * $0
+        return $0 * $1.value
       }
     }
     resultSubject.send(sum)
