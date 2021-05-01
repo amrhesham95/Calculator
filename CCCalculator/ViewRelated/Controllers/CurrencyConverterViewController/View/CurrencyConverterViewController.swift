@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - CurrencyConverterViewController
 //
-class CurrencyConverterViewController: UIViewController {
+class CurrencyConverterViewController: ViewController {
   
   // MARK: - Outlets
   @IBOutlet weak var usdLabel: UILabel!
@@ -21,7 +21,7 @@ class CurrencyConverterViewController: UIViewController {
   //MARK: - Properties
   
   private let viewModel: CurrencyConverterViewModel
-  private let disposeBag = DisposeBag()
+  
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
@@ -31,6 +31,8 @@ class CurrencyConverterViewController: UIViewController {
     textFieldBinding()
     bindUSDValue()
     bindIsValidValue()
+    bindErrorState(to: viewModel)
+    bindLoadingState(to: viewModel)
   }
   
   // MARK: - Init

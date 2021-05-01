@@ -36,13 +36,16 @@ class CurrencyConverterViewModel: ViewModel {
 //
 extension CurrencyConverterViewModel {
   func convert() {
+    state.send(.loading)
     store.getUSDExchangeRate { [weak self] result in
-      switch result {
-      case .success(let currency):
-        self?.state.send(.success)
-        self?.didReceiveCurrency(currency)
-      case .failure(let error):
-        self?.state.send(.failure(error))
+      DispatchQueue.main.async {
+        switch result {
+        case .success(let currency):
+          self?.state.send(.success)
+          self?.didReceiveCurrency(currency)
+        case .failure(let error):
+          self?.state.send(.failure(error))
+        }
       }
     }
   }
@@ -78,10 +81,10 @@ private extension CurrencyConverterViewModel {
     guard let egpValue = converterInputValueSubject.value.doubleValue else { return }
     let usdValue = egpValue / exchangeRate
     let usdString = String(format: "%.2f", usdValue)
-    DispatchQueue.main.async { [weak self] in
-      self?.usdValueSubject.send("USD: \(usdString)$")
-      self?.postCurrencyConversionNotification(value: egpValue)
-    }
+    
+      self.usdValueSubject.send("USD: \(usdString)$")
+      self.postCurrencyConversionNotification(value: egpValue)
+    
   }
 }
 

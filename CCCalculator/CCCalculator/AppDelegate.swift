@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ///
   var window: UIWindow?
   
+  /// AppDelegate's Instance
+  ///
+  static var shared: AppDelegate {
+    guard let appInstance = UIApplication.shared.delegate as? AppDelegate else {
+      fatalError()
+    }
+    return appInstance
+  }
+
   /// Coordinates app navigation.
   ///
   var appCoordinator: AppCoordinator? {

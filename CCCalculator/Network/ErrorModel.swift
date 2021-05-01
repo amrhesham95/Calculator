@@ -25,3 +25,11 @@ extension ErrorModel {
     return ErrorModel(ErrorKey.general.rawValue)
   }
 }
+
+// MARK: - ErrorModel
+//
+extension ErrorModel: LocalizedError {
+  var errorDescription: String? {
+    return messageKey
+  }
+}

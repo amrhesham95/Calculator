@@ -8,6 +8,6 @@
 import Foundation
 
 enum ErrorKey: String {
-    case general = "Error_general"
+    case general = "Communication error occured"
     case parsing = "Error_parsing"
 }
