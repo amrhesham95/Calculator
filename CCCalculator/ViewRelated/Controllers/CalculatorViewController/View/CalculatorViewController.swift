@@ -32,13 +32,8 @@ class CalculatorViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    collectionView.dataSource = self
-    collectionView.delegate = self
-    
-    viewModel.operations.subscribe { [weak self] _ in
-      self?.collectionView.reloadData()
-    }.disposed(by: disposeBag)
-    
+    configureTextField()
+    bindOperationsChanges()
     configureCollectionView()
     equalButtonBinding()
     undoButtonBinding()
@@ -93,6 +88,10 @@ private extension CalculatorViewController {
 
 // MARK: - View Configurations
 private extension CalculatorViewController {
+  
+  func configureTextField() {
+    textField.keyboardType = .asciiCapableNumberPad
+  }
   func handleButtonsSelection(_ sender: UIButton) {
     operationButtons.forEach {$0.isSelected = sender == $0}
   }
@@ -102,7 +101,7 @@ private extension CalculatorViewController {
     collectionView.dataSource = self
     collectionView.registerCellNib(OperationCollectionViewCell.self)
     if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-       flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+      flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
     collectionView.backgroundColor = .black
   }
@@ -116,6 +115,12 @@ private extension CalculatorViewController {
 // MARK: - ViewModel Binding
 //
 private extension CalculatorViewController {
+  
+  func bindOperationsChanges() {
+    viewModel.operations.subscribe { [weak self] _ in
+      self?.collectionView.reloadData()
+    }.disposed(by: disposeBag)
+  }
   
   func resultBinding() {
     viewModel.resultObservable.subscribe { [weak self] value in
@@ -148,7 +153,7 @@ private extension CalculatorViewController {
       self?.equalButton.isEnabled = isActive
     }.disposed(by: disposeBag)
   }
-
+  
 }
 
 
