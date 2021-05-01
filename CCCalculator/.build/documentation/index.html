@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCCalculator - CCCalculator</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                CCCalculator
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#classes">Classes</a></li><li><a href="#structures">Structures</a></li><li><a href="#enumerations">Enumerations</a></li><li><a href="#protocols">Protocols</a></li><li><a href="#extensions">Extensions</a></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+                <section id="classes">
+        <h2>Classes</h2>
+        <dl>
+            <dt class="class">
+    <a href="/DisposeBag" title="class - DisposeBag">
+        Dispose​Bag
+    </a>
+</dt>
+<dd>
+    <p>Thread safe bag that disposes added disposables on <code>deinit</code>.
+This returns ARC (RAII) like resource management to <code>RxSwift</code>.
+In case contained disposables need to be disposed, just put a different dispose bag
+or create a new one in its place.
+self.existingDisposeBag = DisposeBag()
+In case explicit disposal is necessary, there is also <code>CompositeDisposable</code>.</p>
+
+</dd>
+<dt class="class">
+    <a href="/DisposeBase" title="class - DisposeBase">
+        Dispose​Base
+    </a>
+</dt>
+<dd>
+    <p>Base class for all disposables.</p>
+
+</dd>
+        </dl>
+    </section>
+    <section id="structures">
+        <h2>Structures</h2>
+        <dl>
+            <dt class="structure">
+    <a href="/DisposeBag_DisposableBuilder" title="structure - DisposeBag.DisposableBuilder">
+        Dispose​Bag.​Disposable​Builder
+    </a>
+</dt>
+<dd>
+    <p>A function builder accepting a list of Disposables and returning them as an array.</p>
+
+</dd>
+        </dl>
+    </section>
+    <section id="enumerations">
+        <h2>Enumerations</h2>
+        <dl>
+            <dt class="enumeration">
+    <a href="/State" title="enumeration - State">
+        State
+    </a>
+</dt>
+<dd>
+    
+</dd>
+        </dl>
+    </section>
+    <section id="protocols">
+        <h2>Protocols</h2>
+        <dl>
+            <dt class="protocol">
+    <a href="/Disposable" title="protocol - Disposable">
+        Disposable
+    </a>
+</dt>
+<dd>
+    <p>Represents a disposable resource.</p>
+
+</dd>
+        </dl>
+    </section>
+<section id="extensions">
+    <h2>Extensions</h2>
+    <dl>
+    <dt class="extension">
+    <a href="/NSNotification_Name">NSNotification.Name</a>
+</dt>
+<dd></dd>
+    </dl>
+<section>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-05-01T23:54:30+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+</p>
+    </footer>
+</body>
+</html>

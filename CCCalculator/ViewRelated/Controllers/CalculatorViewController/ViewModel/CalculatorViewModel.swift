@@ -17,14 +17,28 @@ class CalculatorViewModel: ViewModel {
   
   var operations: BehaviorSubject<[Operation?]> = BehaviorSubject<[Operation?]>([])
   var removedOperations: BehaviorSubject<[Operation]> = BehaviorSubject<[Operation]>([])
+  
+  /// Undo subject instance
+  ///
   let isUndoActive = BehaviorSubject<Bool>(false)
+  
+  /// Redo subject instance
+  ///
   let isRedoActive = BehaviorSubject<Bool>(false)
+  
+  /// Equal subject instance
+  ///
   let isEqualActive = BehaviorSubject<Bool>(false)
     
+  /// Visible operations count
+  ///
   var operationsCount: Int {
     return operations.value.compactMap {$0}.count
   }
   
+  /// Returns the operation assoicated with the index
+  /// - Parameters:
+  ///   - index: index of the selected operation
   func operationForRowAt(_ index: IndexPath) -> Operation {
     return operations.value.compactMap {$0}[index.row]
   }
@@ -69,6 +83,8 @@ class CalculatorViewModel: ViewModel {
     startListeningToNotifications()
   }
   
+  /// Call to update the value of inputValueSubject (textfield subject)
+  ///
   func updateValueWith(_ text: String?) {
     inputValueSubject.send(text ?? "")
     guard let valueAsNumber = Double(text ?? "") else {
@@ -78,6 +94,8 @@ class CalculatorViewModel: ViewModel {
     postTextFieldChangeNotification(value: valueAsNumber)
   }
   
+  /// Call to undo an operation
+  ///
   func undoOperation(at index: Int) {
     guard operations.value.count > 0,
           let type = operations.value[index]?.type,
@@ -94,6 +112,8 @@ class CalculatorViewModel: ViewModel {
     removedOperations.send(newRemovedOperations)
   }
   
+  /// Call to redo an operation
+  ///
   func redoOperation() {
     guard removedOperations.value.count > 0 else { return }
     var newRemovedOperations = removedOperations.value
@@ -108,18 +128,25 @@ class CalculatorViewModel: ViewModel {
 // MARK: - Binding
 //
 private extension CalculatorViewModel {
+  
+  /// Bind undo button subject to the operations list
+  ///
   func bindIsUndoActive() {
     operations.subscribe { [weak self] operations in
       self?.isUndoActive.send(!operations.compactMap{$0}.isEmpty)
     }.disposed(by: disposeBag)
   }
   
+  /// Bind redo button subject to the operations list
+  ///
   func bindIsRedoActive() {
     removedOperations.subscribe { [weak self] removedOperations in
       self?.isRedoActive.send(!removedOperations.isEmpty)
     }.disposed(by: disposeBag)
   }
   
+  /// Bind equal button subject to the operations list
+  ///
   func bindIsEqualActive() {
     inputValueObservable.subscribe { [weak self] inputValue in
       let isEqualActive = !inputValue.isEmpty && self?.operationType != nil ? true : false
@@ -133,6 +160,8 @@ private extension CalculatorViewModel {
 //
 extension CalculatorViewModel {
   
+  /// Do the calculations based on `OperationType` and `Value`
+  ///
   func calculate() {
     
     guard let type = operationType else { return }
@@ -141,6 +170,8 @@ extension CalculatorViewModel {
     operations.send(newOperations)
   }
   
+  /// Get the last index of a list that has a value and not nil
+  ///
   func getSafeIndex() -> Int {
     for item in operations.value.reversed() where item != nil {
       return item?.index ?? .zero
@@ -148,6 +179,8 @@ extension CalculatorViewModel {
     return .zero
   }
   
+  /// Get the next index after `index` of a list that has a value and not nil
+  ///
   func getSafeIndex(with index: Int) -> Int {
     for operationIndex in index...operations.value.count - 1 where operations.value[operationIndex] != nil {
         return operationIndex
@@ -160,12 +193,17 @@ extension CalculatorViewModel {
 //
 private extension CalculatorViewModel {
   
+  /// Bind updating result on every change of the operations list
+  ///
   func bindResultToOperations() {
     operations.subscribe { [weak self] in
       self?.updateresultWithOperations($0.compactMap {$0})
     }.disposed(by: disposeBag)
   }
   
+  /// Calculate the result based on the operations that happened
+  /// - Parameters:
+  ///   - operations: operations made by the user
   func updateresultWithOperations(_ operations: [Operation]) {
     var sum = 0.0
     resultSubject.send(0)
@@ -190,6 +228,9 @@ private extension CalculatorViewModel {
 //
 private extension CalculatorViewModel {
   
+  /// Post notification when calculator text field value change
+  /// - Parameters:
+  ///   - value: entered value by user
   func postTextFieldChangeNotification(value: Double) {
     
     let dataDictionary: [String: Double] = [Constants.calculatorTextFieldValue: value]
@@ -197,11 +238,16 @@ private extension CalculatorViewModel {
     NotificationCenter.default.post(name: .CalculatorTextFieldDidChange, object: nil, userInfo: dataDictionary)
   }
   
+  /// Listen for currency conversion notification
+  ///
   func startListeningToNotifications() {
     let notificationCenter = NotificationCenter.default
     notificationCenter.addObserver(self, selector: #selector(didReceiveCurrencyConversionOperation), name: .DidConvertCurrencySuccessfully, object: nil)
   }
   
+  /// Updates the operations list with the with conversion as if it was an operation and clear all the previous operations and removed operations on notification received
+  /// - Parameters:
+  ///   - notification: notification send by CurrencyConversion screen when a successful conversion is made
   @objc func didReceiveCurrencyConversionOperation(notification: NSNotification) {
     if let value = notification.userInfo?[Constants.currencyTextFieldValue] as? Double {
       let conversionOperation = Operation(index: 0, value: value, type: .add)

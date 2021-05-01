@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCCalculator - Observable</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                CCCalculator
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#methods">Methods</a><ul><li class="function"><a href="#observable.subscribe(_:)">subscribe(_:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Class</small>
+    <code class="name">Observable</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><span class="keyword">class</span> <span class="type">Observable</span>&lt;<span class="variable">Element</span>&gt; </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Emits values over time.</p>
+
+</div>
+<div class="discussion">
+    <p>Acts like <code>Publisher</code> in Combine and <code>Observable</code> in ReactiveX.</p>
+
+<p>This class is a pseudo-abstract class. It does not do anything on its own. Use the
+subclasses like <code>PublishSubject</code> instead.</p>
+
+<p>See here for more info about Observables:</p>
+
+<ul>
+<li>
+<p>https://developer.apple.com/documentation/combine/publisher</p>
+</li>
+<li>
+<p>http://reactivex.io/documentation/observable.html</p>
+</li>
+</ul>
+
+</div>
+
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="observable.subscribe(_:)">
+    <h3>
+        <code>subscribe(_:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">subscribe</span>(<span class="keyword">_</span> <span class="variable">onNext</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">OnNext</span>&lt;<span class="type">Element</span>&gt;) -&gt; <span class="type">ObservationToken</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Subscribe to values emitted by this <code>Observable</code>.</p>
+
+</div>
+<div class="discussion">
+    <p>The given <code>onNext</code> is called a &quot;Observer&quot; or &quot;Subscriber&quot;.</p>
+
+<p>Example:</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">class</span> <a href="/ViewModel"><span class="type">ViewModel</span></a> {
+    <span class="keyword">let</span> <span class="variable">onDataLoaded</span>: <a href="/Observable"><span class="type">Observable</span></a>&lt;[<span class="type">Item</span>]&gt;
+}
+
+<span class="keyword">func</span> <span class="function">viewDidLoad</span>() {
+    <span class="variable">viewModel</span>.<span class="variable">onDataLoaded</span>.<span class="variable">subscribe</span> { <span class="variable">items</span> <span class="keyword">in</span>
+        <span class="comment">// do something with `items`</span>
+        <span class="variable">tableView</span>.<span class="variable">reloadData</span>()
+    }
+}
+</code></pre></body></html>
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-05-01T23:52:01+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+</p>
+    </footer>
+</body>
+</html>

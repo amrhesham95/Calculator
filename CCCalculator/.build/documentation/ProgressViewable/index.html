@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCCalculator - ProgressViewable</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                CCCalculator
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#requirements">Requirements</a><ul><li class="variable"><a href="#progressviewable.progresstype">progress​Type</a></li><li class="function"><a href="#progressviewable.shouldshowprogressview(_:type:)">should​Show​Progress​View(_:​type:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Protocol</small>
+    <code class="name">Progress​Viewable</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><span class="keyword">protocol</span> <span class="type">ProgressViewable</span> </code></pre>
+</div>
+
+
+
+
+    <section id="requirements">
+        <h2>Requirements</h2>
+
+        <div role="article" class="variable" id="progressviewable.progresstype">
+    <h3>
+        <code>progress​Type</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">progressType</span>: <span class="type">ProgressViewType</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Default <code>ProgressType</code> for loading view.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="progressviewable.shouldshowprogressview(_:type:)">
+    <h3>
+        <code>should​Show​Progress​View(_:​type:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">shouldShowProgressView</span>(<span class="keyword">_</span> <span class="variable">show</span>: <span class="type">Bool</span>, <span class="variable">type</span>: <span class="type">ProgressViewType</span>)</code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Show loading view</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>show</th>
+    <td><code class="type">Bool</code></td>
+    <td><p>Shows progress view.</p>
+</td>
+</tr>
+<tr>
+    <th>type</th>
+    <td><code class="type">Progress​View​Type</code></td>
+    <td><p>set progress view type.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
+    </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-05-01T23:52:01+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+</p>
+    </footer>
+</body>
+</html>

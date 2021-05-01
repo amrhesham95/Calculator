@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCCalculator - PublishSubject</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                CCCalculator
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#publishsubject.subscribe(_:)">subscribe(_:​)</a></li><li class="function"><a href="#publishsubject.send(_:)">send(_:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Class</small>
+    <code class="name">Publish​Subject</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><span class="attribute">final</span> <span class="keyword">class</span> <span class="type">PublishSubject</span>&lt;<span class="variable">Element</span>&gt;: <span class="type">Observable</span>&lt;<span class="type">Element</span>&gt; </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Emits values to observers as soon as the values arrive. Only the values emitted after the
+subscription will be emitted.</p>
+
+</div>
+<div class="discussion">
+    <p>Acts like <code>PassthroughSubject</code> in Combine and <code>PublishSubject</code> in ReactiveX.</p>
+
+<p>This observable is a bridge between the imperative and reactive programming paradigms. It
+allows consumers to <em>manually</em> emit values using the <code>send()</code> method.</p>
+
+<p>Multiple observers are allowed which makes this a possible replacement for
+<code>NSNotificationCenter</code> observations.</p>
+
+<h2>Example Usage</h2>
+
+<p>In a class that you would like to emit values (or events), add the <code>PublishSubject</code> defining
+the value type:</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">class</span> <span class="type">PostListViewModel</span> {
+    <span class="documentation">/// Calls observers/subscribers whenever the list of Post changes.</span>
+    <span class="keyword">private</span> <span class="keyword">let</span> <span class="variable">postsSubject</span> = <span class="variable">PublishSubject</span>&lt;[<span class="type">Post</span>]&gt;()
+}
+</code></pre></body></html>
+<p>Since <code>PublishSubject</code> exposes <code>send()</code> which makes this a <strong>mutable</strong> Observable, we recommend
+exposing only the <code>Observable&lt;[Post]&gt;</code> interface:</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">class</span> <span class="type">PostListViewModel</span> {
+    <span class="keyword">private</span> <span class="keyword">let</span> <span class="variable">postsSubject</span> = <span class="variable">PublishSubject</span>&lt;[<span class="type">Post</span>]&gt;()
+
+    <span class="documentation">/// The public Observable that the ViewController will subscribe to</span>
+    <span class="keyword">var</span> <span class="variable">posts</span>: <a href="/Observable"><span class="type">Observable</span></a>&lt;[<span class="type">Post</span>]&gt; {
+        <span class="variable">postsSubject</span>
+    }
+}
+</code></pre></body></html>
+<p>The <code>ViewController</code> can then subscribe to the <code>posts</code> Observable:</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">func</span> <span class="function">viewDidLoad</span>() {
+    <span class="variable">viewModel</span>.<span class="variable">posts</span>.<span class="variable">subscribe</span> { <span class="variable">posts</span> <span class="keyword">in</span>
+        <span class="comment">// do something with posts</span>
+        <span class="variable">tableView</span>.<span class="variable">reloadData</span>()
+    }
+}
+</code></pre></body></html>
+<p>Whenever the list of post changes, like after fetching from the API, the <code>ViewModel</code> can
+<em>notify</em> the <code>ViewController</code> by updating <code>postsSubject</code>:</p>
+
+<html><body><pre class="highlight"><code><span class="variable">fetchFromAPI</span> { <span class="variable">fetchedPosts</span>
+    <span class="comment">// Notify the observers (e.g. ViewController) that the list of posts have changed</span>
+    <span class="variable">postsSubject</span>.<span class="variable">send</span>(<span class="variable">fetchedPosts</span>)
+}
+</code></pre></body></html>
+<h2>References</h2>
+
+<p>See here for info about similar observables in other frameworks:</p>
+
+<ul>
+<li>
+<p>https://developer.apple.com/documentation/combine/passthroughsubject</p>
+</li>
+<li>
+<p>http://reactivex.io/documentation/subject.html</p>
+</li>
+</ul>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.47.1 (20210417.1919)
+ -->
+<!-- Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- PublishSubject -->
+<g id="node1" class="node class current">
+<title>PublishSubject</title>
+<g id="a_node1"><a xlink:href="/PublishSubject" xlink:title="PublishSubject">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">PublishSubject</text>
+</a>
+</g>
+</g>
+<!-- Observable&lt;Element&gt; -->
+<g id="node2" class="node unknown">
+<title>Observable&lt;Element&gt;</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,0 336,0 336,0 528,0 528,0 534,0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">Observable&lt;Element&gt;</text>
+</g>
+<!-- PublishSubject&#45;&gt;Observable&lt;Element&gt; -->
+<g id="edge1" class="edge conformsTo">
+<title>PublishSubject&#45;&gt;Observable&lt;Element&gt;</title>
+<path fill="none" stroke="black" d="M432,-71.7C432,-63.98 432,-54.71 432,-46.11"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1 432,-36.1 428.5,-46.1 435.5,-46.1"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for PublishSubject.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>Observable&lt;Element&gt;</code></dt>
+</dl>
+</section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="publishsubject.subscribe(_:)">
+    <h3>
+        <code>subscribe(_:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="attribute">override</span> <span class="keyword">func</span> <span class="function">subscribe</span>(<span class="keyword">_</span> <span class="variable">onNext</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">OnNext</span>&lt;<span class="type">Element</span>&gt;) -&gt; <span class="type">ObservationToken</span> </code></pre>
+</div>
+</div>
+<div role="article" class="function" id="publishsubject.send(_:)">
+    <h3>
+        <code>send(_:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">send</span>(<span class="keyword">_</span> <span class="variable">element</span>: <span class="type">Element</span>) </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Emit a new value. All observers are immediately called with the given value.</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-05-01T23:52:01+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+</p>
+    </footer>
+</body>
+</html>

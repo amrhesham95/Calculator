@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCCalculator - Observer</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                CCCalculator
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#observer.init(onnext:)">init(on​Next:​)</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#observer.send(_:)">send(_:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Observer</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><span class="keyword">struct</span> <span class="type">Observer</span>&lt;<span class="variable">Element</span>&gt; </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>A subscription to an <code>Observable</code>.</p>
+
+</div>
+<div class="discussion">
+    <p>Acts like <code>Subscriber</code> in Combine and <code>IObserver</code> in ReactiveX.</p>
+
+<p>Observers are simply the callbacks when you subscribe to an <code>Observable</code>. Consider this:</p>
+
+<html><body><pre class="highlight"><code><span class="variable">viewModel</span>.<span class="variable">onDataLoaded</span>.<span class="variable">subscribe</span> { <span class="variable">items</span> <span class="keyword">in</span>
+    <span class="documentation">/// do something</span>
+}
+</code></pre></body></html>
+<p>The block passed to the <code>subscribe</code> method with the &quot;do something&quot; comment is the <code>Observer</code>.</p>
+
+<p>Currently, this <code>struct</code> is simply a container to clarify these concepts. In other frameworks,
+an <code>Observer</code> can have more callbacks like <code>onCompleted</code>.</p>
+
+<p>See these for more info about Observers:</p>
+
+<ul>
+<li>
+<p>https://developer.apple.com/documentation/combine/subscriber</p>
+</li>
+<li>
+<p>http://introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#IObserver</p>
+</li>
+</ul>
+
+</div>
+
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="observer.init(onnext:)">
+    <h3>
+        <code>init(on​Next:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">init</span>(<span class="variable">onNext</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">OnNext</span>&lt;<span class="type">Element</span>&gt;) </code></pre>
+</div>
+</div>
+    </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="observer.send(_:)">
+    <h3>
+        <code>send(_:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">send</span>(<span class="keyword">_</span> <span class="variable">element</span>: <span class="type">Element</span>) </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Send the given value to the observer.</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-05-01T23:52:01+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCCalculator - CalculatorViewModel</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                CCCalculator
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#calculatorviewmodel.init()">init()</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#calculatorviewmodel.operations">operations</a></li><li class="variable"><a href="#calculatorviewmodel.removedoperations">removed​Operations</a></li><li class="variable"><a href="#calculatorviewmodel.isundoactive">is​Undo​Active</a></li><li class="variable"><a href="#calculatorviewmodel.isredoactive">is​Redo​Active</a></li><li class="variable"><a href="#calculatorviewmodel.isequalactive">is​Equal​Active</a></li><li class="variable"><a href="#calculatorviewmodel.operationscount">operations​Count</a></li><li class="variable"><a href="#calculatorviewmodel.operationtype">operation​Type</a></li><li class="variable"><a href="#calculatorviewmodel.resultsubject">result​Subject</a></li><li class="variable"><a href="#calculatorviewmodel.resultobservable">result​Observable</a></li><li class="variable"><a href="#calculatorviewmodel.inputvaluesubject">input​Value​Subject</a></li><li class="variable"><a href="#calculatorviewmodel.inputvalueobservable">input​Value​Observable</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#calculatorviewmodel.operationforrowat(_:)">operation​For​Row​At(_:​)</a></li><li class="function"><a href="#calculatorviewmodel.updatevaluewith(_:)">update​Value​With(_:​)</a></li><li class="function"><a href="#calculatorviewmodel.undooperation(at:)">undo​Operation(at:​)</a></li><li class="function"><a href="#calculatorviewmodel.redooperation()">redo​Operation()</a></li><li class="function"><a href="#calculatorviewmodel.calculate()">calculate()</a></li><li class="function"><a href="#calculatorviewmodel.getsafeindex()">get​Safe​Index()</a></li><li class="function"><a href="#calculatorviewmodel.getsafeindex(with:)">get​Safe​Index(with:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Class</small>
+    <code class="name">Calculator​View​Model</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><span class="keyword">class</span> <span class="type">CalculatorViewModel</span>: <span class="type">ViewModel</span> </code></pre>
+</div>
+
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="calculatorviewmodel.init()">
+    <h3>
+        <code>init()</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="attribute">override</span> <span class="keyword">init</span>() </code></pre>
+</div>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="calculatorviewmodel.operations">
+    <h3>
+        <code>operations</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">operations</span>: <span class="type">BehaviorSubject</span>&lt;[<span class="type">Operation</span>?]&gt; </code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.removedoperations">
+    <h3>
+        <code>removed​Operations</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">removedOperations</span>: <span class="type">BehaviorSubject</span>&lt;[<span class="type">Operation</span>]&gt; </code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.isundoactive">
+    <h3>
+        <code>is​Undo​Active</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">let</span> <span class="variable">isUndoActive</span> </code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.isredoactive">
+    <h3>
+        <code>is​Redo​Active</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">let</span> <span class="variable">isRedoActive</span> </code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.isequalactive">
+    <h3>
+        <code>is​Equal​Active</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">let</span> <span class="variable">isEqualActive</span> </code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.operationscount">
+    <h3>
+        <code>operations​Count</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">operationsCount</span>: <span class="type">Int</span> </code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.operationtype">
+    <h3>
+        <code>operation​Type</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">operationType</span>: <span class="type">OperationType</span>? </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Operation type that is currently chosen (+, -, *, /)</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.resultsubject">
+    <h3>
+        <code>result​Subject</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">resultSubject</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Result subject instance</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.resultobservable">
+    <h3>
+        <code>result​Observable</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">resultObservable</span>: <span class="type">Observable</span>&lt;<span class="type">Double</span>&gt; </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Result observable instance</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.inputvaluesubject">
+    <h3>
+        <code>input​Value​Subject</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">inputValueSubject</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Result subject instance</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="calculatorviewmodel.inputvalueobservable">
+    <h3>
+        <code>input​Value​Observable</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">var</span> <span class="variable">inputValueObservable</span>: <span class="type">Observable</span>&lt;<span class="type">String</span>&gt; </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Result observable instance</p>
+
+</div>
+</div>
+    </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="calculatorviewmodel.operationforrowat(_:)">
+    <h3>
+        <code>operation​For​Row​At(_:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">operationForRowAt</span>(<span class="keyword">_</span> <span class="variable">index</span>: <span class="type">IndexPath</span>) -&gt; <span class="type">Operation</span> </code></pre>
+</div>
+</div>
+<div role="article" class="function" id="calculatorviewmodel.updatevaluewith(_:)">
+    <h3>
+        <code>update​Value​With(_:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">updateValueWith</span>(<span class="keyword">_</span> <span class="variable">text</span>: <span class="type">String</span>?) </code></pre>
+</div>
+</div>
+<div role="article" class="function" id="calculatorviewmodel.undooperation(at:)">
+    <h3>
+        <code>undo​Operation(at:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">undoOperation</span>(<span class="variable">at</span> <span class="variable">index</span>: <span class="type">Int</span>) </code></pre>
+</div>
+</div>
+<div role="article" class="function" id="calculatorviewmodel.redooperation()">
+    <h3>
+        <code>redo​Operation()</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">redoOperation</span>() </code></pre>
+</div>
+</div>
+<div role="article" class="function" id="calculatorviewmodel.calculate()">
+    <h3>
+        <code>calculate()</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">calculate</span>() </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Do the calculations based on <code>OperationType</code> and <code>Value</code></p>
+
+</div>
+</div>
+<div role="article" class="function" id="calculatorviewmodel.getsafeindex()">
+    <h3>
+        <code>get​Safe​Index()</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">getSafeIndex</span>() -&gt; <span class="type">Int</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Get the last index of a list that has a value and not nil</p>
+
+</div>
+</div>
+<div role="article" class="function" id="calculatorviewmodel.getsafeindex(with:)">
+    <h3>
+        <code>get​Safe​Index(with:​)</code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><span class="keyword">func</span> <span class="function">getSafeIndex</span>(<span class="variable">with</span> <span class="variable">index</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span> </code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Get the next index after <code>index</code> of a list that has a value and not nil</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-05-01T23:52:01+0200">1 May 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+</p>
+    </footer>
+</body>
+</html>
