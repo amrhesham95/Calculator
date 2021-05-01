@@ -38,14 +38,12 @@ extension CurrencyConverterViewModel {
   func convert() {
     state.send(.loading)
     store.getUSDExchangeRate { [weak self] result in
-      DispatchQueue.main.async {
-        switch result {
-        case .success(let currency):
-          self?.state.send(.success)
-          self?.didReceiveCurrency(currency)
-        case .failure(let error):
-          self?.state.send(.failure(error))
-        }
+      switch result {
+      case .success(let currency):
+        self?.state.send(.success)
+        self?.didReceiveCurrency(currency)
+      case .failure(let error):
+        self?.state.send(.failure(error))
       }
     }
   }
@@ -63,7 +61,9 @@ private extension CurrencyConverterViewModel {
   
   func bindOnCurrency() {
     currencySubject.subscribe { [weak self] exchangeRate in
-      self?.convertAndUpdateLabel(exchangeRate: exchangeRate)
+      DispatchQueue.main.async { [weak self] in
+        self?.convertAndUpdateLabel(exchangeRate: exchangeRate)
+      }
     }.disposed(by: disposeBag)
   }
   
